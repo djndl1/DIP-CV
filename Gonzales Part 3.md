@@ -54,7 +54,7 @@ $$
 $$
 It is not possible to code the intensity values of the imaginary source with fewer than $\tilde{H}$ bits/pixel. The amount of entropy and thus information in an image is far from intuitive.
 
-###### Shannon's first theorem (Noiseless coding theorem)
+#### Shannon's first theorem (Noiseless coding theorem)
 
 Define the _nth extension_ of a zero-memory source to be the hypothetical source.
 $$
@@ -76,6 +76,20 @@ Since information is lost in the removal of irrelevant visual information, a mea
 #### Image Compression Models
 
 [Run-Length Encoding](https://en.wikipedia.org/wiki/Run-length_encoding)
+
+An image compression system is composed of two distinct functional components: an _encoder_ and a _decoder_. A _codec_ is a device or program that is capable of both encoding and decoding.
+
+![1525952492851](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1525952492851.png)
+
+__Mapper__: transforms $f(x,\dots)$ into a usually nonvisual format designed to reduce spatial and temporal redundancy. In video applications, the mapper uses previous (and in some cases future) video frames to facilitate the removal of temporal redundancy.
+
+__Quantizer__: reduces the accuracy of the mapper's output in accordance with a pre-established fidelity criterion. [Quantization in Image Processing](https://en.wikipedia.org/wiki/Quantization_(image_processing))
+
+__Symbol coder__: generates a fixed or variable-length code to represent the quantizer output and maps the output in accordance with the code.
+
+__Symbol decoder__ and __inverse mapper__ are the inverse processes.
+
+
 
 #### Image Formats, Containers and Compression Standards
 
