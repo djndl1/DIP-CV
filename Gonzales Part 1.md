@@ -392,7 +392,7 @@ The partial derivatives is not isotropic, but the magnitude is.
 
 Two appoximations to the gradient:  
 
-1. Roberts corss-gradient operator
+1. Roberts cross-gradient operator
 
 2. Sobel operator
 

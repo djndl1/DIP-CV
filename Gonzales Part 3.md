@@ -8,7 +8,7 @@ R=1-\frac{1}{C}
 $$
 where _compression ratio_ $C=\dfrac{b}{b'}$
 
-\indIn the context of digital image compression, $b$ above usually is the number of bits needed to repersent an image as as 2-D array of intensity values. 2-D intensity arrays suffer from three principal types of data redundancies: 
+$\quad\quad$In the context of digital image compression, $b$ above usually is the number of bits needed to repersent an image as as 2-D array of intensity values. 2-D intensity arrays suffer from three principal types of data redundancies: 
 
 1. _Coding redundancy_: a code is system of symbols used to represent a body of information or set of events. Each piece of information or event is assigned a sequence of _code symbols_, called a _code word_.
 2. _Spatial_ and _temporal redundancy_: The pixels of most 2-D intensity arrays are correlated spatially, information is unnecessarily replicated. In a video sequence, temporally correlated pixels also duplicate information.
@@ -22,7 +22,7 @@ $$
 
 _fixed-length code_ and _variable-length code_ (analyzed through the histogram)
 
-A natural binary encoding assigns the same number of bits to both the msot and least probable values, resulting in coding redundancy.
+A natural binary encoding assigns the same number of bits to both the most and least probable values, resulting in coding redundancy.
 
 ####Spatial and Temporal Redundancy
 
@@ -50,7 +50,7 @@ where $a_j$'s are called _source symbols_, and this source is a _zero-memory sou
 
 For a 2-D imaginary zero-memory, with the histogram, the intensity source's entropy is 
 $$
-\tilde{H}=--\sum^J_{j=1}P_r(r_j)\log P_r(r_j)
+\tilde{H}=-\sum^J_{j=1}P_r(r_j)\log P_r(r_j)
 $$
 It is not possible to code the intensity values of the imaginary source with fewer than $\tilde{H}$ bits/pixel. The amount of entropy and thus information in an image is far from intuitive.
 
@@ -93,11 +93,56 @@ __Symbol decoder__ and __inverse mapper__ are the inverse processes.
 
 #### Image Formats, Containers and Compression Standards
 
-_image file format_: a standard way to organize and sotre image data, which defines how the data is arranged and the type of decompression.
+_image file format_: a standard way to organize and store image data, which defines how the data is arranged and the type of decompression.
 
 _Image container_: similar to a file format but handles multiple types of image data.
 
 _Image compression standards_: define procedures for compressing and decompressing images.
+
+## 8.2 Some Basic Compression Methods
+
+#### Huffman Coding
+
+![1527162912561](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1527162912561.png)
+
+Huffman's procedure creates the optimal code for a set of symbols and probabilities subject to the constraint that the symbols be coded one at a time. The code is an _instantaneous_ (each code word in a string of code symbols can be decoded without referencing succeeding symbols) _uniquely decodable_ (any string of code symbols can be decoded in only one way)  _block code_ (each source symbol is mapped into a fixed sequence of code symbols) . When a large number of symbols is to be coded, the construction of an optimal Huffman is a nontrivial task.
+
+#### Golomb Coding
+
+The coding of nonnegative integer inputs with exponentially decaying probability distributions can be optimally encdoed using a family of codes that are computationally simpler than Huffman codes.
+
+1. Form the _unary code_ (for an integer $q$, $q$ 1s followed by a 0) of $\lfloor n/m\rfloor$
+
+2. $r=n \text{ mod } m$   
+   $$
+   r'=\begin{cases}r\ \ \text{truncated to $k-1$ bits} & 0\leq r<2^k-m, k=\lceil\log_2m\rceil\\
+   r+c \ \text{truncated to $k$ bits} & \text{otherwise}\end{cases}
+   $$
+
+3. Concatenate the results of steps 1 and 2
+
+A key step in their effective application is the selection of divisor $m$. Golomb codes are seldom used for the coding of intensities. 
+
+To handle negative differences in Golomb coding, which can only represent nonnegative integers, a mapping like 
+$$
+M(n)=\begin{cases}2n & n\geq 0 \\
+2\lvert n \rvert -1 & n < 0 \end{cases}
+$$
+Golomb and Huffman's codes can produce _data expansion_  when used to encode symbols whose probabilities are different from those for which the code was computed.
+
+The _exponential-Golomb code_
+
+#### Arithmetic Coding
+
+A one-to-one correspondence between source symbols  and code words does not exist. Instead, an entire sequence of source symbols is assigned a single arithmetic code word.
+
+![1527168961965](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1527168961965.png)
+
+#### Adaptive context dependent probability estimates
+
+_Adaptive_ probability models update symbol probabilities as symbols are coded or become known. _Context dependent_ models provide probabilities that are based on a predefined neighborhood of pixels (context) - around the symbols being coded. 
+
+
 
 # Chap. 9 Morphological Image Processing
 
@@ -105,9 +150,9 @@ $\quad\quad$_Mathematical morphology_: a tool for extracting image components th
 
 ## 9.1 Preliminaries
 
-The _reflection_ of a set $B$: $\hat{B}=\{w|w=-b\ for\ b\in B\}$
+The _reflection_ of a set $B$: $\hat{B}=\{w|w=-b\ for\ b$\quad\quad$ B\}$
 
-The _translation_ of a set $B$ by point $z=(z_1,z_2)$, denoted by $(B)_z$: $(B)_z=\{c|c=b+z,\ \text{for}\ b\in B\}$
+The _translation_ of a set $B$ by point $z=(z_1,z_2)$, denoted by $(B)_z$: $(B)_z=\{c|c=b+z,\ \text{for}\ b$\quad\quad$ B\}$
 
 _structuring elements (SEs)_: small sets or subimages used to probe an image under the study for properties of interest. An operation is on a set is defined using a structuring element.
 
@@ -228,3 +273,103 @@ Algorithm:
 4. Compute $X_k\cup A$
 
 The intersection at each step with $A^c$ limits the result to inside the region of interest.
+
+
+
+# Chapter.10 Image Segmentation
+
+$\quad\quad$dSegmentation subdivides an image into its constituent regions or objects. Segmentation should stop when the objects or regions of interest in an application have been detected. Most segmentation algorithms are based on one of two basic properties of intenisty values: _discontinuity_ (edge-based) and _similarity_ (region-based). the approach based on discontinuity is to partition an image based on abrupt changes in intensity, such as edges. The princial approaches based on similarity are to partitioning an image into regions that are similar according to a set of predefined criteria. _Thresholding_, _region growing_ and _region splitting_ and _merging_ are examples based on similarity.
+
+## 10.1 Fundamentals
+
+__Image Segmentation__: a process that partitions $R$ into $n$ subregions, $R_1, R_2, R_3,\dots,R_n$ s.t
+
+- a. $\bigcup\limits^n_{i=1}R_i=R$, indicating that the segmentation must be complete.
+- b. $R_i$ is a conneted set, $i=1,2,\dots,n.$, requring that points a region be connected in some predefined sense.
+- c. $R_i\cap R_j=\varnothing$ for all $i$ and $j$, $i\neq j$ 
+- d. $Q(R_i)=TRUE$ for $i=1,2,\dots,n$
+- e. $Q(R_i \cup R_j)=FALSE$ for any adjacent regions $R_i$ and $R_j$.
+
+Here $Q(\cdot)$ is a logical predicate defined over the point in set $R_k$.
+
+Two regions $R_j$ and $R_i$ are said to be _adjacent_ if their union forms a connected set.
+
+The fundamental problem in segemetation is to partition an image into regions that satisfy the preceding condtions.
+
+## 10.2 Point, Line and Edge Detection
+
+The focus here is on segmentation methods that are based on detecting sharp, _local_ changes in intensity.
+
+*Edge pixels*: pixels at which the intensity of an image function changes abruptly  
+_Edge (segments)_: sets of connected edge pixels  
+_Edge detectors_: local image processing methods designed to detect edge pixels.  
+_Line_: an edge segment in which the intensity of the background on either side of the line is either much higher or much lower than the intensity of the line pixels.
+
+#### Background
+
+There are various ways to approximate differences (e.g. first derivative or second derivative).
+
+Consider a Taylor series and set $\Delta x=1$ , keep only the linear terms we can have a set of approximation for first- and second-derivatives.
+
+Transitions in intensity betwwen the solid objects and the background along the scanline show two types of edges: _ramp edges_ and _step edges_.
+
+The approach of choice for computing first and second derivatives at every pixel location in an image is to use spatial fitlers.
+
+#### Detection of Isolated Points
+
+See sec. 3.6 for Laplacian operator
+
+Use the Laplacian operator and threshold the image after masking.
+
+#### Line Detection
+
+We can use the Laplacian mask for line detection. Mask the image with a Laplacian mask, use only the positive valudes of the masked image. There are non-isotropic Laplacian mask, able to detect lines in specified directions. Masking an image with Laplacian masks in different directions, if the value of one of them at a point is larger than the others, this one is more likely associated with a line corresponding to that direction.
+
+![1526120851428](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526120851428.png)
+
+#### Edge Models
+
+![1526399539212](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526399539212.png)
+
+A _step edge_ involves a transition between two intensity levels occurring ideally over the distance of 1 pixel. Digital step edges are used frequently as edge models in algorithm development.
+
+In the case of blurred and noisy image, a _ramp edge_ is likely to be used in modelling. 
+
+_Roof edges_ arise in range imaging and in the digitization of line drawing and also in satellite images.
+
+The magnitude of the first derivative can be used to detect the presence of an edge at a point in an image. The sign of the second derivative can be used to determine whether an edge pixel lies on the dark or light side of an edge. The second derivative around an edge proces two values for every edge in an image and its zero crossings can be used for locating the centers of thick edges. The first- and second derivative are sensitive to noise, making it difficult to detect edges. Image smoothing should be a serious consideration prior to the use of derivatives in applications.
+
+There are three fundamental steps performed in edge detection  
+
+1. __Image smoothing for noise reduction__
+2. __Detection of edge points__: extracts from an image all points that are potential candidates to become edge points.
+3. __Edge localization__: selects from the candidate edge points only the points that are true members of the set of points comprising an edge.
+
+#### Basic Edge Detection
+
+The tool of choice for finding edge strength and direction at location $(x,y)$  of an image is the gradient. The gradient vector is sometimes called _edge normal_. When the vector is normalized to unit length, it is commonly referred to as the _edge unit normal_.
+
+The _Roberts cross-gradient operators_ are one of the earliest attempts to use 2-D masks with a diagonal preference, implemenrting the diagonal differences
+$$
+g_x=\frac{\partial f}{\partial x}=(z_9 -z_5)\\
+g_y=\frac{\partial f}{\partial y}=(z_8 -z_6)
+$$
+$3\times 3$ masks take into account the nature of the data on opposite sides of the center point and thus carry more information regarding the direction of an edge.
+
+![1526403614865](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526403614865.png)
+
+The Prewitt masks are simpler to implement than the Sobel masks. The fact that the Sobel masks have better noise-suppression (smoothing) characteristics makes them preferable because noise  suppression is an important issue whne dealing with derivatives.
+
+$\quad\quad$dAn approach used frequently to reduce the computational burden is to approximate the magnitude of the gradient by absolute values:
+$$
+M(x,y)\approx \vert g_x\vert+\vert g_y \vert
+$$
+The price paid is that the resulting filters will not be isotropic in general. However this is not an issue whne casks such as the Prewitt and Sobel masks are used because these masks give isotropic results only for vertical and horizontal edges.
+
+![1526404423563](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526404423563.png)
+
+It is common terminology to use the term _edge map_ when referring to an image whose principal features are edges, such as gradient magnitude images.
+
+In general, angle images are not as useful as gradient magnitude images for edge detection, but they do coplement the information extracted from an image using the magnitude of the gradient, such as the constant values along an edge line.
+
+Fine details often is undesirable in edge detection because it tends to act as noise. One way to reduce fine detail is to smooth the image. Another appoach aimed at achieving the same basic objective is to threshold the gradient image. When interest lies both in highlighting the principal edges and on maintaining as much connectivity as possible, it is common practice to use both smoothing and thresholding.
