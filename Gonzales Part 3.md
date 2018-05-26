@@ -142,6 +142,26 @@ A one-to-one correspondence between source symbols  and code words does not exis
 
 _Adaptive_ probability models update symbol probabilities as symbols are coded or become known. _Context dependent_ models provide probabilities that are based on a predefined neighborhood of pixels (context) - around the symbols being coded. 
 
+#### Lempel-Ziv-Welch (LZW) coding
+
+_LZW coding_ is an error-free compression approach that also addresses spatial redundancies in an image. It assigns fixed-length code words to variable length sequences of source symbols. A key feature of LZW coding is that it requires no a priori knowledge of the probability of occurrence of the symbols to be encoded.
+
+At the onset of the coding process, a codebook/dictionary containing the source symbols to be coded is constructed. As the encoder sequentially examines image pixels, intensity sequences that are not in the dictionary are place in algorithmically determined locations. The size of the dictionary is an important system parameter.
+
+The image is encoded by processing its pixels in a left-to-right, top-to-bottom manner. Each successive intenisty value is concatenated with a variable called the "currently recognized sequence", intially null. If the concatenated sequence is not found, the address of the currently recognized sequnece is output as the next encoded value, the concatenated but unrecognized sequence is added to the dictionary. An LZW decoder builds an identical decompression dictionary as it decodes simultaneously the encoded data stream.
+
+![1527337667186](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1527337667186.png)
+
+#### Run-Length Coding
+
+When there are few or no runs of identical pixels, run-length encoding results in data expansion. Each run-length pair specifies the start of a new intensity and the number of consecutive pixels that have that intensity.
+
+Run-length encoding is particularly effective when compressing binary images. Each image row can be represented by a sequence of lengths only. Additional compression can be achieved by variable-length coding the run lengths themselves. Two of the oldest and most widely used image compression standards are the CCITT Group 3 and 4 standards for binary image compression.
+
+#### Symbol-Based Coding
+
+In _symbol-_ or _token-based_ coding, an image is represented as a collection of frequently occurring sub-images called _symbols_. Each symbol is stored in a _symbol dictionary_ and the image is coded as a set of triplets ${(x_i,y_i,t_i)}$ where each $(x_i,y_i)$ pair specifies the location of a symbol in the image and token $t_i$ is the address of the symbol or sub-image in the dictionary.
+
 
 
 # Chap. 9 Morphological Image Processing
