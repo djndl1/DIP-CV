@@ -79,7 +79,7 @@ Since information is lost in the removal of irrelevant visual information, a mea
 
 An image compression system is composed of two distinct functional components: an _encoder_ and a _decoder_. A _codec_ is a device or program that is capable of both encoding and decoding.
 
-![1525952492851](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1525952492851.png)
+![1525952492851](assets/1525952492851.png)
 
 __Mapper__: transforms $f(x,\dots)$ into a usually nonvisual format designed to reduce spatial and temporal redundancy. In video applications, the mapper uses previous (and in some cases future) video frames to facilitate the removal of temporal redundancy.
 
@@ -103,7 +103,7 @@ _Image compression standards_: define procedures for compressing and decompressi
 
 #### Huffman Coding
 
-![1527162912561](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1527162912561.png)
+![1527162912561](assets/1527162912561.png)
 
 Huffman's procedure creates the optimal code for a set of symbols and probabilities subject to the constraint that the symbols be coded one at a time. The code is an _instantaneous_ (each code word in a string of code symbols can be decoded without referencing succeeding symbols) _uniquely decodable_ (any string of code symbols can be decoded in only one way)  _block code_ (each source symbol is mapped into a fixed sequence of code symbols) . When a large number of symbols is to be coded, the construction of an optimal Huffman is a nontrivial task.
 
@@ -136,7 +136,7 @@ The _exponential-Golomb code_
 
 A one-to-one correspondence between source symbols  and code words does not exist. Instead, an entire sequence of source symbols is assigned a single arithmetic code word.
 
-![1527168961965](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1527168961965.png)
+![1527168961965](assets/1527168961965.png)
 
 #### Adaptive context dependent probability estimates
 
@@ -150,7 +150,7 @@ At the onset of the coding process, a codebook/dictionary containing the source 
 
 The image is encoded by processing its pixels in a left-to-right, top-to-bottom manner. Each successive intenisty value is concatenated with a variable called the "currently recognized sequence", intially null. If the concatenated sequence is not found, the address of the currently recognized sequnece is output as the next encoded value, the concatenated but unrecognized sequence is added to the dictionary. An LZW decoder builds an identical decompression dictionary as it decodes simultaneously the encoded data stream.
 
-![1527337667186](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1527337667186.png)
+![1527337667186](assets/1527337667186.png)
 
 #### Run-Length Coding
 
@@ -172,7 +172,7 @@ The intensities of an image can be represented using binary code or gray code. E
 
 An image is divided into small non-overlapping blocks of equal size and processes the blocks independently using a 2-D transform. Linear transform such as the Fourier transform is used to map each _block_ or _subimage_ into a set of transform coefficients, which are then quantized and coded.
 
-![1528113291974](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1528113291974.png)
+![1528113291974](assets/1528113291974.png)
 
 Any or all of the transform encoding steps can be adapted to local image content called _adaptive transform coding_, or fixed for all subimages called _nonadaptive transform coding_.
 
@@ -240,7 +240,7 @@ $\quad\quad$_Mathematical morphology_: a tool for extracting image components th
 
 ## 9.1 Preliminaries
 
-The _reflection_ of a set $B$: $\hat{B}=\{w|w=-b\ for\ b$\quad\quad$ B\}$
+The _reflection_ of a set $B$: $\hat{B}=\{w|w=-b\ for\ b\quad\quad B\}$
 
 The _translation_ of a set $B$ by point $z=(z_1,z_2)$, denoted by $(B)_z$: $(B)_z=\{c|c=b+z,\ \text{for}\ b$\quad\quad$ B\}$
 
@@ -260,7 +260,7 @@ A\ominus B=\{z|(B)_z\cap A^c=\varnothing \}
 $$
 Set $B$ is assumed to be a structuring element. We can view _erosion_ as a morphological filtering operation in which image details smaller than the structuring element are filtered.
 
-![52441429067](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524414290676.png)
+![52441429067](1524414290676.png)
 
 ###### Dilation
 
@@ -272,7 +272,7 @@ or
 $$
 A\oplus B=\{z|(\hat{B})_z\cap A\subseteq A \}
 $$
-![52441429991](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524414299919.png)
+![52441429991](1524414299919.png)
 
 $\quad\quad$One of the simplest applications of dilation is for bridging gaps. One immediate advantage of the morphological approach over the lowpass filter method is that the morphological method resulted directly in a binary image.
 
@@ -295,15 +295,15 @@ A\circ B=(A\ominus B)\oplus B=\bigcup\{(B)_z|(B)_z\subseteq A\}
 $$
 Erosion of $A$ by $B$, followed by a dilation of the result by $B$
 
-![52449524996](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524495249963.png)
+![52449524996](1524495249963.png)
 
 $\quad\quad$The _closing_ of set $A$ by structuring element $B$, defined as 
 $$
 A\ \yen\ B=(A\oplus B)\ominus B
 $$
-![52449546516](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524495465168.png)
+![52449546516](1524495465168.png)
 
-![52449572537](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524495725371.png)
+![52449572537](1524495725371.png)
 
 __Duality__
 $$
@@ -335,7 +335,7 @@ A\circledast B=(A\ominus B_1)\cap(A^c\ominus B)=(A\ominus B_1)-(A\oplus\hat{B}_2
 $$
 where $B=(B_1, B_2)$, $B_1$ is the set formed from elements of B associated with an object and $B_2$ is the set of elements of B associated with the corresponding background.
 
-![52449862915](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524498629150.png)
+![52449862915](1524498629150.png)
 
 $\quad\quad$The approach here is based on an assumed definition that two or more objects are distinct only if they form disjoint sets, thus we require each object have at least one-pixel-thick background around it. If this requirement is not needed, the hit-or-miss transform reduces to simple erosion.
 
@@ -415,11 +415,11 @@ Use the Laplacian operator and threshold the image after masking.
 
 We can use the Laplacian mask for line detection. Mask the image with a Laplacian mask, use only the positive valudes of the masked image. There are non-isotropic Laplacian mask, able to detect lines in specified directions. Masking an image with Laplacian masks in different directions, if the value of one of them at a point is larger than the others, this one is more likely associated with a line corresponding to that direction.
 
-![1526120851428](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526120851428.png)
+![1526120851428](assets/1526120851428.png)
 
 #### Edge Models
 
-![1526399539212](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526399539212.png)
+![1526399539212](assets/1526399539212.png)
 
 A _step edge_ involves a transition between two intensity levels occurring ideally over the distance of 1 pixel. Digital step edges are used frequently as edge models in algorithm development.
 
@@ -446,7 +446,7 @@ g_y=\frac{\partial f}{\partial y}=(z_8 -z_6)
 $$
 $3\times 3$ masks take into account the nature of the data on opposite sides of the center point and thus carry more information regarding the direction of an edge.
 
-![1526403614865](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526403614865.png)
+![1526403614865](assets/1526403614865.png)
 
 The Prewitt masks are simpler to implement than the Sobel masks. The fact that the Sobel masks have better noise-suppression (smoothing) characteristics makes them preferable because noise  suppression is an important issue whne dealing with derivatives.
 
@@ -456,7 +456,7 @@ M(x,y)\approx \vert g_x\vert+\vert g_y \vert
 $$
 The price paid is that the resulting filters will not be isotropic in general. However this is not an issue whne casks such as the Prewitt and Sobel masks are used because these masks give isotropic results only for vertical and horizontal edges.
 
-![1526404423563](/home/djn_dl/Desktop/GitHub/Digital Image Process Gonzales/assets/1526404423563.png)
+![1526404423563](assets/1526404423563.png)
 
 It is common terminology to use the term _edge map_ when referring to an image whose principal features are edges, such as gradient magnitude images.
 

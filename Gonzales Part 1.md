@@ -1,39 +1,39 @@
 #Chap.1 Introduction
 
 ​	改善图示信息以便人们解释； 为存储、传输和表达而对图像数据进行处理，以便于机器自动理解。
-	数字图像处理是借助于数字计算机处理数字图像
-	
+​	数字图像处理是借助于数字计算机处理数字图像
+​	
 $\qquad$$\qquad$图像源：从伽马射线到无线电波的整个电磁波谱，包括超声波‘电子显微镜和计算机生成的图像
-			电磁能谱，声波、超声波、电子
-			图像处理-图像分析/理解-计算机视觉 的连续统
-			低级-中级-高级 处理
+​			电磁能谱，声波、超声波、电子
+​			图像处理-图像分析/理解-计算机视觉 的连续统
+​			低级-中级-高级 处理
 
 ###1.2 起源
 
 ​		电缆传输图片
-		计算机的兴起
-		空间项目的开发
-		CT（计算机断层）
+​		计算机的兴起
+​		空间项目的开发
+​		CT（计算机断层）
 
 ###1.3 实例应用
 
 ###1.4 基本步骤
 
 ​		输入-输出都是图像
-		输入图像-输出提取的属性
+​		输入图像-输出提取的属性
 
 $\qquad$$\qquad$_Figure 1.23_
-		图像获取image acquisition
-		图像增强(image enhancement)：使图像在特定应用中比原始图像更适合进行处理
-		图像复原(image restoration)：倾向于以图像退化的数学或概率模型为基础
-		彩色图像处理(color image processing)
-		小波：以不同辨率来描述图像的基础(wavelets and multiresolution processing)
-		压缩(compression)
-		形态学处理(morphological processing)
-		分割(segmentation)
-		表示（representation 确定表示范围，比如边界或者整个区域）与描述（description 特征选择）
-		识别(recognition)：基于目标的描述给该目标赋予标志
-		显示(display)
+​		图像获取image acquisition
+​		图像增强(image enhancement)：使图像在特定应用中比原始图像更适合进行处理
+​		图像复原(image restoration)：倾向于以图像退化的数学或概率模型为基础
+​		彩色图像处理(color image processing)
+​		小波：以不同辨率来描述图像的基础(wavelets and multiresolution processing)
+​		压缩(compression)
+​		形态学处理(morphological processing)
+​		分割(segmentation)
+​		表示（representation 确定表示范围，比如边界或者整个区域）与描述（description 特征选择）
+​		识别(recognition)：基于目标的描述给该目标赋予标志
+​		显示(display)
 
 ###1.5 图像处理系统的组成
 
@@ -46,78 +46,78 @@ $\qquad$$\qquad$_Figure 1.23_
 ###2.1 人类视觉系统
 
 ​			人眼结构  
-			眼中图像的形成  
-			亮度适应和辨别  
-			
+​			眼中图像的形成  
+​			亮度适应和辨别  
+​			
 
 ###2.2 光和电磁波谱
 
 ​			E=hv 光子 频率段  
-			单色光/无色光 的唯一属性是 强度，用 灰度级 表示，从黑到白的度量  值通常称为 灰度级  
-			彩色光源：发光强度（能量总和，瓦特）　光通量（流明数，观察者从光源感受到的能量）　	亮度（主观描述）  
-			要求“看到”一个物体的电磁波的波长必须小于等于物体的尺寸  
-		
+​			单色光/无色光 的唯一属性是 强度，用 灰度级 表示，从黑到白的度量  值通常称为 灰度级  
+​			彩色光源：发光强度（能量总和，瓦特）　光通量（流明数，观察者从光源感受到的能量）　	亮度（主观描述）  
+​			要求“看到”一个物体的电磁波的波长必须小于等于物体的尺寸  
+​		
 
 ###2.3 图像感知和获取
 
 ​			照射源， 场景  
-			照射可以由非传统光源，比如超声波甚至计算机产生的照射模式。  
-			平坦表面反射 透射  
-			
+​			照射可以由非传统光源，比如超声波甚至计算机产生的照射模式。  
+​			平坦表面反射 透射  
+​			
 $\qquad$$\qquad$$\qquad$单个传感器，条带传感器，阵列传感器  
-			简单的图像形成模型 2.3.4  
-			反射系数/透射系数 * 入射分量  
-			灰度级/强度级 $l=0$黑色 $l=L-1$白色 gray scale  
+​			简单的图像形成模型 2.3.4  
+​			反射系数/透射系数 * 入射分量  
+​			灰度级/强度级 $l=0$黑色 $l=L-1$白色 gray scale  
 
 ###2.4 取样和量化 
 
 ​			取样：对坐标值进行数字化　＝》样本数  
-			量化：对幅值数字化　＝》灰度级  
-			实践中，取样方法由生成该图像的传感器配置决定  
-			
+​			量化：对幅值数字化　＝》灰度级  
+​			实践中，取样方法由生成该图像的传感器配置决定  
+​			
 $\qquad$$\qquad$$\qquad$二维阵列  $f(x,y)$		
-			三种表示*Fig2.18*  
+​			三种表示*Fig2.18*  
 
 ​			图像原点位于左上角：图像显示器, 矩阵排列方式  
 
 ​			$M:row\; N:col$ $L$:灰度级，一般为2的整数次幂  
-			_动态范围_： 最大可度量灰度与最小可检测灰度之比 dynamic range  
-			_饱和度_：超过该值的灰度级会被剪切掉 saturation  
-			_对比度_：最高和最低灰度级的灰度差；高动态范围意味着高对比度   contrast  
-			
+​			_动态范围_： 最大可度量灰度与最小可检测灰度之比 dynamic range  
+​			_饱和度_：超过该值的灰度级会被剪切掉 saturation  
+​			_对比度_：最高和最低灰度级的灰度差；高动态范围意味着高对比度   contrast  
+​			
 $\qquad$$\qquad$$\qquad$_空间分辨率_的度量必须针对空间单位来规定才有意义 spatial   resolution
-			_灰度分辨率_： 灰度级中可分辨的最小变化，最通用8比特 intensity resolution
-			
+​			_灰度分辨率_： 灰度级中可分辨的最小变化，最通用8比特 intensity resolution
+​			
 $\qquad$$\qquad$$\qquad$_内插_： 使用已知数据来估计未知位置的数值的处理 interpolation
-				最近邻内插，把元图像中最近邻的灰度赋给每个新位置 nearest neighbor interpolation
-				双线性内插 bi-linear interpolation
-				双三次内插 bicubic interpolation
+​				最近邻内插，把元图像中最近邻的灰度赋给每个新位置 nearest neighbor interpolation
+​				双线性内插 bi-linear interpolation
+​				双三次内插 bicubic interpolation
 
 ###2.5 像素间的关系
 
 ​			4邻域 8邻域 4/8-neighbors 
-			
+​			
 $\qquad$$\qquad$$\qquad$__邻接性__： 处于同一灰度值集合且处于邻域中 adjacency
-				4/8/m-adjacency
-			__连通性__： 相互邻接的 Connectivity
-			用连通定义 _前景_ 和 _背景_ foreground background
-			__区域边界__：与背景有邻点的像素集合（８邻接）(boundary, border, contour)
-			_内边界_与_外边界_（背景边界）(inner/outer border)
-			the concept of edge is different from boundary, and is formed from pixels with derivative values that exceed a preset threshold
-			
+​				4/8/m-adjacency
+​			__连通性__： 相互邻接的 Connectivity
+​			用连通定义 _前景_ 和 _背景_ foreground background
+​			__区域边界__：与背景有邻点的像素集合（８邻接）(boundary, border, contour)
+​			_内边界_与_外边界_（背景边界）(inner/outer border)
+​			the concept of edge is different from boundary, and is formed from pixels with derivative values that exceed a preset threshold
+​			
 $\qquad$$\qquad$$\qquad$距离度量的定义，欧式距离、D4距离、D8距离
 
 ###2.6 数学工具
 
 ​		灰度的集合运算P47
-			__并集__：对应最大　交集：对应最小　补集：差值
-			
+​			__并集__：对应最大　交集：对应最小　补集：差值
+​			
 $\qquad$$\qquad$$\qquad$__模糊集__：　引入_隶属度函数_ Fuzzy set, membership function
-			__几何变换__P109 Geometric spatial transformation
-			__反向映射与前向映射__ forward/inverse mapping
-			__图像对齐＼图像配准__，选择约束点 image registration, tie points/control points
-			将图像作为向量处理
-			__图像变换__P54-56 image transform
+​			__几何变换__P109 Geometric spatial transformation
+​			__反向映射与前向映射__ forward/inverse mapping
+​			__图像对齐＼图像配准__，选择约束点 image registration, tie points/control points
+​			将图像作为向量处理
+​			__图像变换__P54-56 image transform
 
 # Chap.3  Intensity Transformations and Spatial Filtering
 
@@ -186,7 +186,7 @@ $$
 Varying $\gamma$ gives different transformation.
 
 Applications: __Gamma correction__: the process to correct power-law response phenomena. e.g. CRT gamma correction
-		     __General-purpose contrast manipulation__
+​		     __General-purpose contrast manipulation__
 
 ######Piecewise-Linear Transformation Functions
 
@@ -252,9 +252,9 @@ $\quad\quad$ Either in continuous cases or in discrete cases, histogram mathcing
 >2. For $k=1,...L-1$
 >
 >   ​	Find the closest $G(z_q)$ to $s_k$ 
->   	Map this $k$ to this $q$
->   	if there are more than one $q$
->   		choose the smallest one
+>   ​	Map this $k$ to this $q$
+>   ​	if there are more than one $q$
+>   ​		choose the smallest one
 >
 >3.  The mapping from $r_k$ to $z_q$ is thus obtained
 
@@ -332,8 +332,8 @@ _Weighted average_
 
 __Order-statistic filters__: nonlinear spatial filters whose response is based on ordering (ranking) the pixels contained in the iamge area encompassed by the filter and then replacing the value of the center pixel with the value determined by the ranking result.  
 e.g. _median filter_, which provides excellent noise reduction capabilities, particularly effective in dealing with _impulse noise (salt-and-pepper, giving white and black appearance)._  
-	_min filter_
-	_max filter_
+​	_min filter_
+​	_max filter_
 
 ## 3.6 Sharpening Spatial Filters
 
@@ -622,7 +622,7 @@ $$
 
 For any two discrete even and odd functions $w_e\text{ and }w_0$
 
-![52379666335](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523796663357.png)
+![52379666335](1523796663357.png)
 
 ###### Fourier Spectrum and Phase Angle
 
@@ -662,13 +662,13 @@ h_p(x,y)=\begin{cases}f(x,y) & 0\leq x\leq C-1 \text{ and }0\leq y\leq D-1\\
 $$
 
 
-![52380227082](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802270827.png)
+![52380227082](1523802270827.png)
 
-![52380228456](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802284560.png)
+![52380228456](1523802284560.png)
 
-![52380230712](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802307121.png)
+![52380230712](1523802307121.png)
 
-![52380232075](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1523802320753.png)
+![52380232075](1523802320753.png)
 
 ### 4.7 The Basics of Filtering in the Frequency Domain
 
@@ -789,7 +789,7 @@ where $k_1\geq 0 $ gives controls of the offset from the origin and $k_2$ contro
 
 ###### Homomorphic Filtering
 
-![52438912215](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1524389122153.png)
+![52438912215](1524389122153.png)
 
 The _illumination_ component is characterized by slow spatial variations while the _reflectance_ component tends to vary abruptly, particularly at the junctions of dissimilar objects.
 
@@ -801,7 +801,7 @@ $$
 H_{BP}(u,v)=1-H_{BR}(u,v)
 $$
 
-![52438958813](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1524389588133.png)
+![52438958813](1524389588133.png)
 
 ###### Notch Filters (small regions in the frequency domain)
 
@@ -888,7 +888,7 @@ If neigther is zero and especially approximately equal, _salt-and-pepper_ , _dat
 
 $a$ and $b$ are usually assumed to be saturated values, either black or white.
 
-![52404431917](D:\Documents\GitHub\Commentarii\Digital Image Process Gonzales\1524044319176.png)
+![52404431917](1524044319176.png)
 
 ###### Periodic Noise
 
@@ -994,17 +994,17 @@ $$
 z:\text{intensity value in the neighborhood $S_{xy}$}, \ z_{min},\ z_{max},\ z_{med},\ z_{xy}, \\S_{max}\text{: maximum allowed size of $S_{xy}$}
 $$
 _Algorithm_:   
-	Stage A:  $A1 = z_{med}-z_{min}$  
-			$A2 = z_{med}-z_{max}$   
-			If $A1>0$ AND $A2<0$, go to stage B  
-			Else increase $S_{xy}$  
-			If $S_{xy}\leq S_{max}$ repeat stage A  
-			Else output $z_{med}$  
+​	Stage A:  $A1 = z_{med}-z_{min}$  
+​			$A2 = z_{med}-z_{max}$   
+​			If $A1>0$ AND $A2<0$, go to stage B  
+​			Else increase $S_{xy}$  
+​			If $S_{xy}\leq S_{max}$ repeat stage A  
+​			Else output $z_{med}$  
 
 ​	Stage B:  $B1=z_{xy}-z_{min}$  
-			$B2=z_{xy}-z_{max}$  
-			If $B1>0$ AND $B2<0$, output $z_{xy}$  
-			Else output $z_{med}$
+​			$B2=z_{xy}-z_{max}$  
+​			If $B1>0$ AND $B2<0$, output $z_{xy}$  
+​			Else output $z_{med}$
 
 It removes salt-and-pepper noise, provides smoothing of other noise that may not be impulsive and to reduce distortion.
 
@@ -1091,7 +1091,7 @@ $$
 \hat{F}(u,v)=\Bigg[\dfrac{1}{H(u,v)}\dfrac{|H(u,v)|^2}{|H(u,v)|^2+S_\eta(u,v)/S_f(u,v)}\Bigg]G(u,v)
 $$
 where $S_\eta(u,v)=|N(u,v)|^2=$ power spectrum of the noise  
-	   $S_f(u,v)=|F(u,v)|^2=$ power spectrum of the undegraded image
+​	   $S_f(u,v)=|F(u,v)|^2=$ power spectrum of the undegraded image
 
 This "two S's" term can be measured by _signal-to-noise ratio_ $SNR=\dfrac{\sum\limits^{M-1}_{u=0}\sum\limits^{N-1}_{v=0}|F(u,v)|^2}{\sum\limits^{M-1}_{u=0}\sum\limits^{N-1}_{v=0}|N(u,v)|^2}$
 
