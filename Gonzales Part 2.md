@@ -12,7 +12,7 @@ gray level for black-to-grays-to-white.
 
 _Radiance_ from the source, _luminance_ by the observer, subjective _brightness_
 
-$\quad\quad$It is important to keep in mind that having three specific primary color wavelengths for the purpose of standardization deos not mean that these three fixed RGB components acting alone can generate all spectrum colors.
+$\quad\quad$It is important to keep in mind that having three specific primary color wavelengths for the purpose of standardization does not mean that these three fixed RGB components acting alone can generate all spectrum colors.
 
 Primary colors of light: RGB  
 Primary colors of pigments/colorants: magenta, cyan, yellow
@@ -32,7 +32,7 @@ $\quad\quad$A _color model (color space, color system)_ is a specification of a 
 
 ###### The RGB Color Model
 
-![52438138232](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524381382329.png)
+![52438138232](1524381382329.png)
 
 _pixel depth_: the number of bits used to represent each pixel in RGB space.
 
@@ -67,11 +67,11 @@ $$
 
 ###### Intensity to Color Transformations
 
-![52438557042](/home\djn_dl\Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524385570429.png)
+![52438557042](1524385570429.png)
 
 E.g. $f_R(x,y)$, $f_G(x,y)$ , $f_B(x,y)$ are sinusoids of different phases.
 
-![52438622724](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524386227249.png)
+![52438622724](1524386227249.png)
 
 Sometimes it is of interest to combine several monochrome images into a single color composite.
 
@@ -95,11 +95,11 @@ where  $r_i$ and $s_i$ are variables denoting the color compoents of $f(x,y)$ an
 
 $\quad\quad$The hues directly opposite one another on the _color circle_ are called _complements_.
 
-![52447447234](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524474472347.png)
+![52447447234](\1524474472347.png)
 
 Color complements are useful for enhancing detail that is embedded in dark regions of a color image, particularly when the regions are dominant in size.
 
-![52447488436](/home/djn_dl/Desktop\GitHub\Commentarii\Digital Image Process Gonzales\1524474884362.png)
+![52447488436](1524474884362.png)
 
 The RGB complement transformation here do not have a straightforward HSI space equivalent.
 
@@ -204,9 +204,9 @@ $\quad\quad$If both small and large objects or low- and high-contrast objects ar
 
 $\quad\quad$A powerful yet conceptually simple structure for representing images at more than one resolutution is the _image pyramid_. An image pyramid is a collection of decresing resolution images arranged in the shape of a pyramid.
 
-![1525510327753](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525510327753.png)
+![1525510327753](assets/1525510327753.png)
 
-![1525510569684](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525510569684.png)
+![1525510569684](assets/1525510569684.png)
 
 Approximations form an approximation pyramid and predicition residuals form a prediction residual pyramid, which are computed iteratively. 
 
@@ -233,7 +233,7 @@ Given a filter $h_1(n)$:
 3. $h_4(n)=h_1(K-1-n)$: order reversal
 4. $h_5(n)=(-1)^nh_1(n)$ and $h_6(n)=(-1)^nh_1(K-1-n)$: modulation
 
-![1525513744697](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525513744697.png)
+![1525513744697](assets/1525513744697.png)
 
 The analysis filter bank breaks input sequence into two half-length sequences, the _subbands_. Synthesis bank filters combine them and produce the _approximation_, identical to the original input. The system is siad to employ _perfect reconstruction fitlers_.
 
@@ -266,7 +266,7 @@ where $K_{even}$ is an even number.
 
 $\quad\quad$An orthonormal filter bank can be developped around the impulse response of a single filter called the _prototype_. For biorthogonal filter banks, two prototypes are required. 1-D orthonormal and biorthogonal filters can be used as 2-D separablefilters for the processing of images, resulting in four subbands: _approxiamtion, vertical detail, horizontal detail_ and _diagonal detail._
 
-![1525515292860](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525515292860.png)
+![1525515292860](assets/1525515292860.png)
 
 #### The Haar Transform
 
@@ -376,7 +376,7 @@ V_{j+1}=V_j\oplus W_j
 $$
 And $V_j^\bot$ (orthogonal complement) in $V_{j+1}$ is $W_j$ (Note that the direct sum of a subspace and its orthogonal complement is the superspace)
 
-![1525529512771](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525529512771.png)
+![1525529512771](assets/1525529512771.png)
 
 Therefore
 $$
@@ -484,13 +484,13 @@ which are the defining equations for the compuation of the FWT.
 
 [Big O notation](https://en.wikipedia.org/wiki/Big_O_notation)
 
-![1525599069306](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525599069306.png)
+![assets/1525599069306.png)
 
 The spectrum of the original function is split into two half-band components.
 
 __The Inverse fast wavelet transform__
 
-![1525607644675](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525607686696.png)
+![1525607644675](assets/1525607686696.png)
 
 
 
@@ -531,9 +531,9 @@ f(x,y)&=\dfrac{1}{\sqrt{MN}}\sum_m\sum_nW_\phi(j_0,m,n)\phi_{j_0,m,n}(x,y)\\&+\d
 $$
 Like the 1-D discrete wavlet transform, the 2-D DWT can be implemented using digital filters and downsamplers.
 
-![1525610874822](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525610874822.png)
+![1525610874822](assets/1525610874822.png)
 
-![1525610921221](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525610921221.png)
+![1525610921221](assets/1525610921221.png)
 
 The filter banks above can be used iteratively.
 
@@ -544,7 +544,7 @@ Applicaitons:
 
 ## 7.6 Wavelet Packets
 
-![1525613022733](/home/djn_dl/桌面/GitHub/Commentarii/Digital Image Process Gonzales/assets/1525613022733.png)
+![1525613022733](assets/1525613022733.png)
 
 Each horizontal strip of constant height tiles contain the basis functions for a single FWT scale. A generalization of the FWT is made to gain greater control of the partitioning of the time-frequency plane.
 
