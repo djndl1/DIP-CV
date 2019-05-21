@@ -90,13 +90,41 @@ Any equation where an augmented vector appear on both sides, it can always be re
 The rotation+translation is also known as _2D rigid body motion_ or the _2D Euclidean transformation_, the transformation matrix is obtained through polar coordiantes and trigonometry.
 
 >Non-technically, Affine Transformations are translations, dilations/expansions/contractions, rotations, reflections, shears and combinations thereof.
-
+>
 >[homography](https://en.wikipedia.org/wiki/Homography):  the relation between two figures (as two representations of the same thing in different perspective) such that for every point, line, or angle in one there is a corresponding point, line, or angle in the other.
 
 The easiest wayt to think of these transformations is as a set of matrices operating on 2D homogeneous coordinate vectors.
 
 >[covector](https://en.wikipedia.org/wiki/Linear_form): is a linear map from a vector space to its field of scalars.
 
-## 
+##### 3D rotations
+
+The biggest difference between 2D and 3D coordinate transformations is that the parameterization of the 3D rotation matrix $R$ is not as straightforward but several posssibilities exist.
+
+> intrisic rotations: Intrinsic rotations are elemental rotations that occur about the axes of a coordinate system XYZ attached to a moving body. Therefore, they change their orientation after each elemental rotation. 
+>
+> extrinsic rotations: Extrinsic rotations are elemental rotations that occur about the axes of the fixed coordinate system xyz. The XYZ system rotates, while xyz is fixed.
+>
+> [Euler angles](https://en.wikipedia.org/wiki/Euler_angles): three angles introduced by Leonhard Euler to describe the orientation of a rigid body w.r.t. a fixed coordinate system. Any orientation can be achieved by composing three elemental rotations, i.e. rotations about the axes of a coordinate system. Euler angles can be defined by three of these rotations.
+>
+>[Tait-Bryan angles](https://en.wikipedia.org/wiki/Euler_angles#Tait–Bryan_angles): Normally used for aerospace applications. The Tait-Bryan angles represent rotations about three distinct axes.
+>
+>[Aircraft principal axes](https://en.wikipedia.org/wiki/Aircraft_principal_axes)
+>
+> The location and orientation together fully describe how the object is placed in space. Euler's rotation theorem shows that in three dimensions any orientation can be reached with a single rotation around a fixed axis. This gives one common way of representing the orientation using an axis–angle representation. Other widely used methods include rotation quaternions, Euler angles, or rotation matrices.
+
+## 3D to 2D projections
+
+There are two graphical projection categories
+
+- parallel projection
+
+- perspective projection
+
+each with its own protocol
+
+Read [this](https://en.wikipedia.org/wiki/3D_projection) and P42-P45 before continuing
+
+
 ### Camera Models
 
