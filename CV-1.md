@@ -125,6 +125,9 @@ each with its own protocol
 
 Read [this](https://en.wikipedia.org/wiki/3D_projection) and P42-P45 before continuing
 
+Objects drawn with parallel projection do not appear larger or smaller as they extend closer to or away from the viewer. It is not how our eyes or photography normally work. It can easily result in sitautions where depth and altitude are difficult to gauge.
+
+In perspective projection, parallel lines appear to intersect in the projected image, converge towards a single point (_vanishing point_). Perspective projection is usually categorized into one-point, two-point and three-point perspective, depending on the orientation of the projection plane towards the axes of the depicted object. The vanishing points of all horizontal lines lie on the horizon line
 
 ### Camera Models
 
