@@ -1,4 +1,4 @@
-#Chap.6 Color Image Processing
+# Chap.6 Color Image Processing
 
 __Fullcolor__: acquired with a fullcolor sensor  
 __Pseudocolor__: assigned colors to a particular monochrome intensity or range of intensities. 

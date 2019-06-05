@@ -1,4 +1,4 @@
-#Chap.1 Introduction
+# Chap.1 Introduction
 
 ​	改善图示信息以便人们解释； 为存储、传输和表达而对图像数据进行处理，以便于机器自动理解。
 ​	数字图像处理是借助于数字计算机处理数字图像
@@ -8,16 +8,16 @@ $\qquad$$\qquad$图像源：从伽马射线到无线电波的整个电磁波谱�
 ​			图像处理-图像分析/理解-计算机视觉 的连续统
 ​			低级-中级-高级 处理
 
-###1.2 起源
+### 1.2 起源
 
 ​		电缆传输图片
 ​		计算机的兴起
 ​		空间项目的开发
 ​		CT（计算机断层）
 
-###1.3 实例应用
+### 1.3 实例应用
 
-###1.4 基本步骤
+### 1.4 基本步骤
 
 ​		输入-输出都是图像
 ​		输入图像-输出提取的属性
@@ -35,22 +35,22 @@ $\qquad$$\qquad$_Figure 1.23_
 ​		识别(recognition)：基于目标的描述给该目标赋予标志
 ​		显示(display)
 
-###1.5 图像处理系统的组成
+### 1.5 图像处理系统的组成
 
 ​	_Fig. 1.24_
 
-#第2章 数字图像基础
+# 第2章 数字图像基础
 
 ​		
 
-###2.1 人类视觉系统
+### 2.1 人类视觉系统
 
 ​			人眼结构  
 ​			眼中图像的形成  
 ​			亮度适应和辨别  
 ​			
 
-###2.2 光和电磁波谱
+### 2.2 光和电磁波谱
 
 ​			E=hv 光子 频率段  
 ​			单色光/无色光 的唯一属性是 强度，用 灰度级 表示，从黑到白的度量  值通常称为 灰度级  
@@ -58,7 +58,7 @@ $\qquad$$\qquad$_Figure 1.23_
 ​			要求“看到”一个物体的电磁波的波长必须小于等于物体的尺寸  
 ​		
 
-###2.3 图像感知和获取
+### 2.3 图像感知和获取
 
 ​			照射源， 场景  
 ​			照射可以由非传统光源，比如超声波甚至计算机产生的照射模式。  
@@ -69,7 +69,7 @@ $\qquad$$\qquad$$\qquad$单个传感器，条带传感器，阵列传感器
 ​			反射系数/透射系数 * 入射分量  
 ​			灰度级/强度级 $l=0$黑色 $l=L-1$白色 gray scale  
 
-###2.4 取样和量化 
+### 2.4 取样和量化 
 
 ​			取样：对坐标值进行数字化　＝》样本数  
 ​			量化：对幅值数字化　＝》灰度级  
@@ -93,7 +93,7 @@ $\qquad$$\qquad$$\qquad$_内插_： 使用已知数据来估计未知位置的�
 ​				双线性内插 bi-linear interpolation
 ​				双三次内插 bicubic interpolation
 
-###2.5 像素间的关系
+### 2.5 像素间的关系
 
 ​			4邻域 8邻域 4/8-neighbors 
 ​			
@@ -107,7 +107,7 @@ $\qquad$$\qquad$$\qquad$__邻接性__： 处于同一灰度值集合且处于邻
 ​			
 $\qquad$$\qquad$$\qquad$距离度量的定义，欧式距离、D4距离、D8距离
 
-###2.6 数学工具
+### 2.6 数学工具
 
 ​		灰度的集合运算P47
 ​			__并集__：对应最大　交集：对应最小　补集：差值
@@ -143,7 +143,7 @@ $\qquad$Let the window shrink to one pixel and this becomes _point processing_.
 
 $\qquad$__Enhancement__:  the process of manipulating an image so that the result is more suitable than the original for a specific application, implying it's problem-oriented. No general theory.
 
-##3.2 Some Basic Intenisty Transformation Fucntions
+## 3.2 Some Basic Intenisty Transformation Fucntions
 
 $$
 s=T(r)
@@ -188,7 +188,7 @@ Varying $\gamma$ gives different transformation.
 Applications: __Gamma correction__: the process to correct power-law response phenomena. e.g. CRT gamma correction
 ​		     __General-purpose contrast manipulation__
 
-######Piecewise-Linear Transformation Functions
+###### Piecewise-Linear Transformation Functions
 
 $\qquad$A complementary approach to the methods above, and it can be arbitrarily complex.
 
@@ -200,7 +200,7 @@ __Intensity-level slicing__: highlighting a specific range of intenisties in an 
 
 **Bit-plane slicing**: highlighting certain bits of the intensities of a byte. The higer order bit planes contain a significant amount of the visually significant data, the lower-order planes contribute to more subtle intensity details. Decomposing an image into its bit planes is useful for analyzing the relative importance of each bit in the image, a process that aids in determining the adequacy of the number of bits used to quantize the image. Also useful for iamge compression, in which fewer tan all planes are used in reconstructing an image.
 
-##3.3 Histogram Processing
+## 3.3 Histogram Processing
 
 $\qquad$**Histogram**: a digital image with intensity levels in the range $[0,L-1]$ is a discrete function $h(r_k)=n_k$, where $r_k$ is the kth intensity value and $n_k$ is the number of pixels in the image with intensity $r_k$. Commonly normailzed by the total number of pixels $MN$, i.e. $p(r_k)=n_k/MN$ ,which is an estimate of the probability of occurrence of intensity level in an image.
 
@@ -417,7 +417,7 @@ The advent of digital computers and the invention of Fast Fourier Transform
 
 ### Fundamentals
 
-######__Fourier series__
+###### __Fourier series__
 
 $$
 f(t)=\sum\limits^{\infin}_{n=-\infin}c_ne^{j\frac{2\pi n}{T}t}
@@ -486,7 +486,7 @@ $$
 $$
 which is an infinite periodic sequence of copies of $F(\mu)$
 
-######__Sampling Theorem__
+###### __Sampling Theorem__
 
 $$
 \dfrac{1}{\Delta T}>2\mu_{max}\quad \text{Nyquist Rate}
@@ -537,7 +537,7 @@ $$
 
 ### 4.5 Extension to Functions of Two Variables
 
-######The 2-D Impulse and Its Sifting Property
+###### The 2-D Impulse and Its Sifting Property
 
 2-D Continuous variables $t,z$
 $$
@@ -814,7 +814,7 @@ $$
 H_{NP}(u,v)=1-H_{NR}(u,v)
 $$
 
-#Chap.5 Image Restoration and Reconstruction
+# Chap.5 Image Restoration and Reconstruction
 
 $\quad\quad$The principal goal of restoration techniques is to improve an image in some predefined sense. Image enhancement is largely a subjective process, while restoration attempts to recover an image that has been degraded by using a priori knowledge of the degradation phenomenon, that is, oriented toward modeling the degradation and applying the inverse process in order to recover the original image.
 
