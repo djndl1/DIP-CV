@@ -1,0 +1,716 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass book
+\use_default_options true
+\begin_modules
+algorithm2e
+tabs-within-sections
+figs-within-sections
+eqs-within-sections
+theorems-ams-chap-bytype
+theorems-ams-extended-chap-bytype
+\end_modules
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "tgtermes" "default"
+\font_sans "tgheros" "default"
+\font_typewriter "tgcursor" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Intro
+\end_layout
+
+\begin_layout Standard
+An introduction t othe principal ideas.
+\end_layout
+
+\begin_layout Section
+Projective geometry
+\end_layout
+
+\begin_layout Standard
+Straightness is preserved, the most general requirement on the mapping.
+\end_layout
+
+\begin_layout Standard
+In Euclidean space, parallel lines do not meet.
+ By adding an infinity point to a Euclidean space, projective space is introduce
+d, an extension of euclidean space in which two lines always meet in a point.
+\end_layout
+
+\begin_layout Standard
+Points are represented by 
+\emph on
+equivalence classes
+\emph default
+ of coordinate triples, where two triples are equivalent when they differ
+ by a common multiple, called 
+\emph on
+homogeneous coordinates.
+
+\emph default
+ Given a point 
+\begin_inset Formula $\left(x,y,0\right)$
+\end_inset
+
+, divide by the last coordinate, 
+\begin_inset Formula $\left(x/0,y/0\right)$
+\end_inset
+
+ is the point at infinity.
+ The Euclidean space 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+ can be extended to a project space 
+\begin_inset Formula $\mathbb{P}^{n}$
+\end_inset
+
+ by representing poitns at homogenous vectors.
+\end_layout
+
+\begin_layout Subsection
+Homogeneity
+\end_layout
+
+\begin_layout Standard
+In classiclal Euclidean geometry all points are the same, no distringuished
+ point.
+ From the point of view of projective geometry, points at infinity are not
+ any different from other points.
+ By analogy of 
+\begin_inset CommandInset href
+LatexCommand href
+name "Euclidean transformation"
+target "https://en.wikipedia.org/wiki/Rigid_transformation"
+literal "false"
+
+\end_inset
+
+, a projective transformation of projective space 
+\begin_inset Formula $\mathbb{P}^{n}$
+\end_inset
+
+ is defined by a linear transformation of homogeneous coordinates
+\begin_inset Formula 
+\[
+X^{'}=H_{\left(n+1\right)\times\left(n+1\right)}X.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In CV problems, projective space is used as convenient way of repressenting
+ the real 3D world.
+ In reality, the real world and images of it do not contain points at infinity.
+\end_layout
+
+\begin_layout Subsection
+Affine geometry
+\end_layout
+
+\begin_layout Standard
+Parallelism is not a concept of projective geometry, since all lines in
+ projective space meet at some point.
+ Parallel lines are just lines that intersect at points at infinity.
+\end_layout
+
+\begin_layout Standard
+The geometry of the proejctive plane and a distinguished line is known as
+ 
+\emph on
+affine geometry
+\emph default
+ and any projective transformation that maps the distringuished line in
+ one space to the distinguished line of the other space is known as an 
+\emph on
+affine transformation
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Euclidean geometry
+\end_layout
+
+\begin_layout Standard
+Singling out some special feature of the line or plane at infinity affine
+ geometry becomes Euclidean geometry.
+\end_layout
+
+\begin_layout Section
+Camera Projections
+\end_layout
+
+\begin_layout Standard
+The usual way of modelling the drop form 3D world to a 2D image is by 
+\emph on
+central projection
+\emph default
+ in which a ray from a point in space is drawn from a 3D world point through
+ a fixed point in space, called the 
+\emph on
+center of project
+\emph default
+.
+ All rays intersect a specific plane in space chosen as the 
+\emph on
+image plane
+\emph default
+.
+ Central projection is simply a map from 
+\begin_inset Formula $\mathbb{P}^{3}$
+\end_inset
+
+ to 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+All points in a ray passing through the center of projection project to
+ the same point in an image.
+ Thus, the set of all image points is the same as the set of rays through
+ the camera center.
+ The set of rays themselves may be thought of as a representation of the
+ image space 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+.
+ All that is important is the camera center.
+\end_layout
+
+\begin_layout Part
+Projective Geometry, Transformations and Estimation
+\end_layout
+
+\begin_layout Standard
+The ideas of notation of projective geometry are central to an analysis
+ of multiple view geometry.
+\end_layout
+
+\begin_layout Chapter
+Projective Geometry and Transformations of 2D
+\end_layout
+
+\begin_layout Standard
+The main geometric ideas and notation that are required to understand the
+ main material.
+\end_layout
+
+\begin_layout Standard
+A significant advantage of the algebraic approach to geometry is that results
+ derived in this way may more easily be used to derive algorithms and practical
+ computational methods.
+\end_layout
+
+\begin_layout Section
+Homogeneous representation of points and lines on a plane
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset href
+LatexCommand href
+name "Equivalence class"
+target "https://en.wikipedia.org/wiki/Equivalence_class"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lines
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $ax+by+c=0$
+\end_inset
+
+ and 
+\begin_inset Formula $kax+kby+kc=0$
+\end_inset
+
+ are the same line, any particular 
+\begin_inset Formula $(a,b,c)^{T}$
+\end_inset
+
+ , except 
+\begin_inset Formula $\left(0,0,0\right)^{T}$
+\end_inset
+
+, which is not a line, is a representative of the equivalence class of lines.
+ The set of equivalence classes of vectors in 
+\begin_inset Formula $\mathbb{R}^{3}-\left(0,0,0\right)^{T}$
+\end_inset
+
+ forms the projective space 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+.
+ The study of the geometry of 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+ is known as 
+\emph on
+projective geometry
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Points
+\end_layout
+
+\begin_layout Standard
+It is easy to see that for a point 
+\begin_inset Formula $(x,y)$
+\end_inset
+
+ and a line 
+\begin_inset Formula $\boldsymbol{l}$
+\end_inset
+
+, 
+\begin_inset Formula $\left(kx,ky,k\right)\boldsymbol{l}=0$
+\end_inset
+
+ iff 
+\begin_inset Formula $\left(x,y,1\right)\boldsymbol{l}=0$
+\end_inset
+
+, thus points as homogeneous vectors are also elements of 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Degrees of freedeom
+\end_layout
+
+\begin_layout Standard
+Lines and points need two parameters to specify.
+\end_layout
+
+\begin_layout Subsection
+Interseciton of lines
+\end_layout
+
+\begin_layout Standard
+The interseciton of two lines 
+\begin_inset Formula $\boldsymbol{l}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{l}^{\prime}$
+\end_inset
+
+ is the point 
+\begin_inset Formula $\boldsymbol{x}=\boldsymbol{l}\times\boldsymbol{l}^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Line joining points
+\end_layout
+
+\begin_layout Standard
+The line through two points 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\boldsymbol{x}^{\prime}$
+\end_inset
+
+ is 
+\begin_inset Formula $\boldsymbol{l}=\boldsymbol{x}\times\boldsymbol{x}^{\prime}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Ideal points and the line at infinity
+\end_layout
+
+\begin_layout Standard
+The points with last coordinate 
+\begin_inset Formula $x_{3}=0$
+\end_inset
+
+ are known as 
+\emph on
+ideal points
+\emph default
+, or 
+\emph on
+points at infinity, written as 
+\begin_inset Formula 
+\[
+\left(x_{1},x_{2},0\right)^{T},
+\]
+
+\end_inset
+
+which lies on the line at infinity 
+\begin_inset Formula $l_{\infty}=\left(0,0,1\right)^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Given a line 
+\begin_inset Formula $l=\left(a,b,c\right)$
+\end_inset
+
+ and a parallel line 
+\begin_inset Formula $l^{\prime}=\left(a,b,c^{\prime}\right)$
+\end_inset
+
+, both intersects 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ at 
+\begin_inset Formula $\left(b,-a,0\right)$
+\end_inset
+
+.
+ As the line's direction varies, the ideal point 
+\begin_inset Formula $\left(b,-a,0\right)$
+\end_inset
+
+ varies over 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+.
+ In 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+, two distinct lines always meet in a single point and two distincts lie
+ on a single line.
+\end_layout
+
+\begin_layout Standard
+Points and lines of 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+ are represented by rays and planes, through the origin in 
+\begin_inset Formula $\mathbb{R}^{3}$
+\end_inset
+
+.
+ Lines lying in the 
+\begin_inset Formula $x_{1}x_{2}$
+\end_inset
+
+-plane represent ideal points, and the 
+\begin_inset Formula $x_{1}x_{2}$
+\end_inset
+
+-plane represents 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Duality principle
+\end_layout
+
+\begin_layout Proposition
+To any theorem of 
+\begin_inset Formula $2$
+\end_inset
+
+-dimensional projective geometry, there corresponds a dual theorem, which
+ may be derived by interchanging roles of points and lines in the original
+ theorem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The proof of hte dual theorem will be the dual of the proof of the original
+ theorem.
+ Once the original theorem has been proved, it is not necessary to prove
+ the dual of a given theorem.
+\end_layout
+
+\begin_layout Subsection
+Conics and dual conics
+\end_layout
+
+\begin_layout Standard
+In 2D projective geometry, all non-degenerate conics are equivalent under
+ projective transformations.
+ The homogeneous form of a conic can be obtained by replacing 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ with 
+\begin_inset Formula $x_{1}/x_{3}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{2}/x_{3}$
+\end_inset
+
+, resulting in 
+\begin_inset Formula 
+\[
+\boldsymbol{x}^{T}C\boldsymbol{x}=0
+\]
+
+\end_inset
+
+where the conic coefficient matrix 
+\begin_inset Formula $C$
+\end_inset
+
+ is given by 
+\begin_inset Formula 
+\[
+C=\begin{bmatrix}a & b/2 & d/2\\
+b/2 & c & e/2\\
+d/2 & e/2 & f
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The conic has five degrees of freedom 
+\begin_inset Formula $\left\{ a\colon b\colon c\colon d\colon e\colon f\right\} $
+\end_inset
+
+ or equivalently the six elements of a symmetric matrix less one for scale.
+\end_layout
+
+\begin_layout Proposition
+A conic is determined uniquely (up to scale) by five points in general position.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The method of fitting a geometric entity or relation by determining a null
+ space is frequently used.
+\end_layout
+
+\begin_layout Proposition
+The line 
+\begin_inset Formula $l$
+\end_inset
+
+ tangent to a conic 
+\begin_inset Formula $C$
+\end_inset
+
+ at a point 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+ is given by 
+\begin_inset Formula $\boldsymbol{l}=C\boldsymbol{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proof
+The line passes through 
+\begin_inset Formula $\boldsymbol{x}$
+\end_inset
+
+, that is, 
+\begin_inset Formula 
+\[
+l^{T}x=x^{T}Cx=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proof
+If 
+\begin_inset Formula $l$
+\end_inset
+
+ has one point contact with the conic, then we are done with the proof.
+ Otherwise it meets the conic at another point 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ Then 
+\begin_inset Formula $y^{T}Cy=0$
+\end_inset
+
+ and 
+\begin_inset Formula $x^{T}Cy=l^{T}y=0.$
+\end_inset
+
+ Then 
+\begin_inset Formula 
+\[
+\left(x+\alpha y\right)^{T}C\left(x+\alpha y\right)=0\quad\text{for all }\alpha.
+\]
+
+\end_inset
+
+which means the whole line 
+\begin_inset Formula $l$
+\end_inset
+
+ lies on the conic 
+\begin_inset Formula $C$
+\end_inset
+
+, which is degenerate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+If the matrix 
+\begin_inset Formula $C$
+\end_inset
+
+ is not of full rank, then the conic is termed degenerate.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Degenerate point conics include two lines (rank 
+\begin_inset Formula $2$
+\end_inset
+
+), and a repeated line (rank 
+\begin_inset Formula $1$
+\end_inset
+
+).
+\end_layout
+
+\end_body
+\end_document
