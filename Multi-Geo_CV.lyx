@@ -581,6 +581,18 @@ d/2 & e/2 & f
 \end_layout
 
 \begin_layout Standard
+The conic 
+\begin_inset Formula $C$
+\end_inset
+
+ is more properly termed a 
+\emph on
+point 
+\emph default
+conic, a sit defines an equation on points.
+\end_layout
+
+\begin_layout Standard
 The conic has five degrees of freedom 
 \begin_inset Formula $\left\{ a\colon b\colon c\colon d\colon e\colon f\right\} $
 \end_inset
@@ -710,6 +722,354 @@ Degenerate point conics include two lines (rank
 \end_inset
 
 ).
+\end_layout
+
+\begin_layout Standard
+Given the duality result, it is not surprising that there is also a conic
+ which defines an equaiton on lines.
+\end_layout
+
+\begin_layout Definition
+Dual conics, 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+A line 
+\begin_inset Formula $l$
+\end_inset
+
+ tangent to the conic 
+\begin_inset Formula $C$
+\end_inset
+
+ satisfies 
+\begin_inset Formula $l^{T}C^{*}l=0$
+\end_inset
+
+.
+ 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+ is the adjoint matrix of 
+\begin_inset Formula $C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Dual conics are also called conic envelopes because of tangent lines.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Projective transformations
+\end_layout
+
+\begin_layout Standard
+2D proejctive geometry is the study of properties of the projective palen
+ 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+ that are invariant under a group of transformations known as 
+\emph on
+projectivities
+\emph default
+.
+\end_layout
+
+\begin_layout Definition
+projectivity/collineation/projective transformation/homography
+\end_layout
+
+\begin_layout Definition
+A projectivity is an invertible mapping 
+\begin_inset Formula $h$
+\end_inset
+
+ from 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+ to itself s.t.
+ three points 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{3}$
+\end_inset
+
+ lie on the same line iff 
+\begin_inset Formula $h\left(x_{1}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $h\left(x_{2}\right)$
+\end_inset
+
+ and 
+\begin_inset Formula $h\left(x_{3}\right)$
+\end_inset
+
+ do.
+\end_layout
+
+\begin_layout Standard
+Projectivities form a group since the inverse of a projectivity is also
+ a projectivity, and so is the composition of two projectivities.
+\end_layout
+
+\begin_layout Theorem
+\begin_inset CommandInset label
+LatexCommand label
+name "thm: non-singular matrix for projectivity"
+
+\end_inset
+
+A mapping 
+\begin_inset Formula $h\colon\mathbb{P}^{2}\to\mathbb{P}^{2}$
+\end_inset
+
+ is a projectivity iff there exists a non-singular 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ matrix 
+\begin_inset Formula $H$
+\end_inset
+
+ s.t.
+ for any point in 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+represented by a vector 
+\begin_inset Formula $\vec{x}$
+\end_inset
+
+ it is true that 
+\begin_inset Formula $h\left(\vec{x}\right)=H\vec{x}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Any invertible linear transformation of homogeneous coordinates is a projectivit
+y.
+\end_layout
+
+\begin_layout Proof
+Let 
+\begin_inset Formula $x_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $x_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $x_{3}$
+\end_inset
+
+ lie on a line 
+\begin_inset Formula $l$
+\end_inset
+
+.
+ Thus 
+\begin_inset Formula $l^{T}x_{i}=0$
+\end_inset
+
+ for 
+\begin_inset Formula $i=1,2,3$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $H$
+\end_inset
+
+ be a non-singular 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ matrix.
+ 
+\begin_inset Formula $l^{T}H^{-1}Hx_{i}=0$
+\end_inset
+
+.
+ Thus the points 
+\begin_inset Formula $Hx_{i}$
+\end_inset
+
+ all lie on the line 
+\begin_inset Formula $H^{-1}l$
+\end_inset
+
+, and so collinearity is preserved by the transformation.
+\end_layout
+
+\begin_layout Proof
+The converse is omitted since it is not provided in the book.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+An alternative defition can be provided given the above theorem.
+\end_layout
+
+\begin_layout Definition
+Projective transformation
+\end_layout
+
+\begin_layout Definition
+A planar projective transformation is a linear transformation on homogeneous
+ 
+\begin_inset Formula $3$
+\end_inset
+
+-vectors represented by a non-singular 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ matrix
+\begin_inset Formula 
+\[
+\begin{pmatrix}x_{1}^{\prime}\\
+x_{2}^{\prime}\\
+x_{3}^{\prime}
+\end{pmatrix}=\begin{bmatrix}h_{11} & h_{12} & h_{13}\\
+h_{21} & h_{22} & h_{23}\\
+h_{31} & h_{32} & h_{33}
+\end{bmatrix}\begin{pmatrix}x_{1}\\
+x_{2}\\
+x_{3}
+\end{pmatrix}
+\]
+
+\end_inset
+
+or more briefly 
+\begin_inset Formula $x^{\prime}=Hx$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Note that the matrix 
+\begin_inset Formula $H$
+\end_inset
+
+ may be changed by multiplication by an arbitrary non-zero scale without
+ altering the projective transformation, thus called a 
+\emph on
+homogenous 
+\emph default
+matrix.
+ Only the ratio of the matrix elements is significant, giving eight degrees
+ of freedom.
+\end_layout
+
+\begin_layout Subsection
+Transformations of lines and conics
+\end_layout
+
+\begin_layout Subsubsection
+Transformation of lines
+\end_layout
+
+\begin_layout Standard
+From the proof 
+\begin_inset CommandInset ref
+LatexCommand vpageref
+reference "thm: non-singular matrix for projectivity"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, a line transforms as 
+\begin_inset Formula 
+\[
+l^{\prime}=\left(H^{-1}\right)^{T}l.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Transformation of conics
+\end_layout
+
+\begin_layout Standard
+Under a point transformation 
+\begin_inset Formula $x^{\prime}=Hx$
+\end_inset
+
+, a conic 
+\begin_inset Formula $C$
+\end_inset
+
+ transforms to 
+\begin_inset Formula 
+\[
+C^{\prime}=\left(H^{-1}\right)^{T}CH^{-1}.
+\]
+
+\end_inset
+
+a dual conic 
+\begin_inset Formula $C^{*}$
+\end_inset
+
+ transforms to 
+\begin_inset Formula 
+\[
+C^{*\prime}=HC^{*}H^{T}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+A hierarchy of transformations
+\end_layout
+
+\begin_layout Standard
+Projective transformations form a group, called the 
+\emph on
+projective linear group.
 \end_layout
 
 \end_body
