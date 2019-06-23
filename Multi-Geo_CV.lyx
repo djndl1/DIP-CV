@@ -1070,6 +1070,247 @@ A hierarchy of transformations
 Projective transformations form a group, called the 
 \emph on
 projective linear group.
+ The following transformations goes from special to general.
+\end_layout
+
+\begin_layout Definition
+invariant
+\end_layout
+
+\begin_layout Definition
+A invariant of a geometric configuration is a function of the configuration
+ whose value is unchanged by a particular transformation.
+\end_layout
+
+\begin_layout Subsection
+Class Ⅰ: Isometries
+\end_layout
+
+\begin_layout Definition
+Isometries are transformations of the plane 
+\begin_inset Formula $\mathbb{R}^{2}$
+\end_inset
+
+ that preserve Euclidean distance (so called iso-metry), represented as
+ 
+\begin_inset Formula 
+\[
+\begin{pmatrix}x^{\prime}\\
+y^{\prime}\\
+1
+\end{pmatrix}=\begin{bmatrix}\epsilon\cos\theta & -\sin\theta & t_{x}\\
+\epsilon\sin\theta & \cos\theta & t_{y}\\
+0 & 0 & 1
+\end{bmatrix}\begin{pmatrix}x\\
+y\\
+1
+\end{pmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset space ~
+\end_inset
+
+where 
+\begin_inset Formula $\epsilon=\pm1$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\epsilon=-1$
+\end_inset
+
+ reverses orientation.
+\end_layout
+
+\begin_layout Example*
+Euclidean transformations model the motion of a rigid object, the most important
+ isometries in practice, written as
+\begin_inset Formula 
+\[
+\mathbf{x}^{\prime}=H_{E}\mathbf{x}=\begin{bmatrix}R & \mathbf{t}\\
+\mathbf{0} & 1
+\end{bmatrix}\mathbf{x}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $R$
+\end_inset
+
+ is a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ rotation matrix (an orthogonal matrix s.t.
+ 
+\begin_inset Formula $R^{T}R=RR^{T}=I$
+\end_inset
+
+), 
+\begin_inset Formula $\mathbf{t}$
+\end_inset
+
+ a translation 
+\begin_inset Formula $2$
+\end_inset
+
+-vector.
+ A Euclidenan transformation is also known as a 
+\emph on
+displacement
+\emph default
+.
+\end_layout
+
+\begin_layout Example*
+A planar Euclidean transformation has three degrees of freedom.
+ The transformation can be computed from two point correspondences.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Length, angle and area are invariants under isometries.
+\end_layout
+
+\begin_layout Subsection
+Class Ⅱ: Similarity transformations
+\end_layout
+
+\begin_layout Definition
+A similarity transformation (similarity) is an isometry composed with an
+ 
+\begin_inset CommandInset href
+LatexCommand href
+name "isotropic"
+target "https://en.wikipedia.org/wiki/Isotropy"
+literal "false"
+
+\end_inset
+
+ scaling
+\begin_inset Formula 
+\[
+\begin{pmatrix}x^{\prime}\\
+y^{\prime}\\
+1
+\end{pmatrix}=\begin{bmatrix}s\cos\theta & -s\sin\theta & t_{x}\\
+s\sin\theta & s\cos\theta & t_{y}\\
+0 & 0 & 1
+\end{bmatrix}\begin{pmatrix}x\\
+y\\
+1
+\end{pmatrix}
+\]
+
+\end_inset
+
+or 
+\begin_inset Formula 
+\[
+\mathbf{x}^{\prime}=H_{S}\mathbf{x}=\begin{bmatrix}sR & \mathbf{t}\\
+\mathbf{0} & 1
+\end{bmatrix}\mathbf{x}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where the scalar 
+\begin_inset Formula $s$
+\end_inset
+
+ is the isotropic scaling.
+ A similary transformation is also known as an equi-form
+\emph on
+ transformation
+\emph default
+ because it preserves 
+\begin_inset Quotes eld
+\end_inset
+
+shape
+\begin_inset Quotes erd
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A planar similarity has four degrees of freedom, making it determinable
+ from two point correspondences.
+\end_layout
+
+\begin_layout Standard
+Parallelism, ratio of line lengths, ratio of areas, angles.
+\end_layout
+
+\begin_layout Subsection
+Class Ⅲ: Affine transformations
+\end_layout
+
+\begin_layout Definition
+An affine transformation (affinity) is a non-singular linear transformation
+ followed by a translation.
+\begin_inset Formula 
+\[
+\begin{pmatrix}x^{\prime}\\
+y^{\prime}\\
+1
+\end{pmatrix}=\begin{bmatrix}a_{11} & a_{12} & t_{x}\\
+a_{21} & a_{22} & t_{y}\\
+0 & 0 & 1
+\end{bmatrix}\begin{pmatrix}x\\
+y\\
+1
+\end{pmatrix}
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\mathbf{x}^{\prime}=H_{S}\mathbf{x}=\begin{bmatrix}A & \mathbf{t}\\
+\mathbf{0} & 1
+\end{bmatrix}\mathbf{x}
+\]
+
+\end_inset
+
+with 
+\begin_inset Formula $A$
+\end_inset
+
+ a 
+\begin_inset Formula $2\times2$
+\end_inset
+
+ non-singular matrix.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A planar affine transformation has six degrees of freedom, determinable
+ from three points correspondence.
 \end_layout
 
 \end_body
