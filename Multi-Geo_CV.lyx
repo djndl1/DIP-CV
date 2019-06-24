@@ -1283,7 +1283,7 @@ y\\
 or
 \begin_inset Formula 
 \[
-\mathbf{x}^{\prime}=H_{S}\mathbf{x}=\begin{bmatrix}A & \mathbf{t}\\
+\mathbf{x}^{\prime}=H_{A}\mathbf{x}=\begin{bmatrix}A & \mathbf{t}\\
 \mathbf{0} & 1
 \end{bmatrix}\mathbf{x}
 \]
@@ -1306,6 +1306,50 @@ with
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+From the SVD, the linear component 
+\begin_inset Formula $A$
+\end_inset
+
+ can be decomposed into 
+\begin_inset Formula 
+\[
+A=UDV^{T}=\left(UV^{T}\right)\left(VDV^{T}\right)=R\left(\theta\right)\left(R\left(-\phi\right)DR\left(\phi\right)\right)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+D=\begin{bmatrix}\lambda_{1} & 0\\
+0 & \lambda_{2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+since 
+\begin_inset Formula $U$
+\end_inset
+
+ and 
+\begin_inset Formula $V$
+\end_inset
+
+ are orthogonal matrices, namely 
+\emph on
+rotations
+\emph default
+ and 
+\emph on
+non-isotropic
+\emph default
+ scalings.
+ The essence of an affinity is the scaling in orthogonal directions, oriented
+ at a particular angle.
 \end_layout
 
 \begin_layout Standard
