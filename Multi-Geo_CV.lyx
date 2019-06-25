@@ -795,7 +795,7 @@ projectivity/collineation/projective transformation/homography
 \end_layout
 
 \begin_layout Definition
-A projectivity is an invertible mapping 
+A projectivity is an invertible (nonsingular) mapping 
 \begin_inset Formula $h$
 \end_inset
 
@@ -839,7 +839,7 @@ Projectivities form a group since the inverse of a projectivity is also
 \begin_layout Theorem
 \begin_inset CommandInset label
 LatexCommand label
-name "thm: non-singular matrix for projectivity"
+name "thm:non-singular matrix for projectivity"
 
 \end_inset
 
@@ -1008,7 +1008,7 @@ Transformation of lines
 From the proof 
 \begin_inset CommandInset ref
 LatexCommand vpageref
-reference "thm: non-singular matrix for projectivity"
+reference "thm:non-singular matrix for projectivity"
 plural "false"
 caps "false"
 noprefix "false"
@@ -1262,8 +1262,8 @@ Class Ⅲ: Affine transformations
 \end_layout
 
 \begin_layout Definition
-An affine transformation (affinity) is a non-singular linear transformation
- followed by a translation.
+An affine transformation (affinity) is a general non-singular linear transformat
+ion of inhomogeneous coordinates followed by a translation.
 \begin_inset Formula 
 \[
 \begin{pmatrix}x^{\prime}\\
@@ -1355,6 +1355,231 @@ non-isotropic
 \begin_layout Standard
 A planar affine transformation has six degrees of freedom, determinable
  from three points correspondence.
+\end_layout
+
+\begin_layout Standard
+Length ratios and angels between lines are not preserved because of affine
+ transformation.
+ Three important invariants, line parallelism, ratio of lengths of parallel
+ line segments (the scaling is common to all lines with the same direction),
+ ratios of areas (the area is scaled by 
+\begin_inset Formula $\det A=\lambda_{1}\lambda_{2}$
+\end_inset
+
+).
+ An affinity is orientation-preserving or -reversing according to whether
+ 
+\begin_inset Formula $\det A$
+\end_inset
+
+ is positive or negative respectively.
+\end_layout
+
+\begin_layout Subsection
+Class Ⅵ: Projective transformations
+\end_layout
+
+\begin_layout Definition
+Non singular linear transformation of homogeneous coordinates.
+\begin_inset Formula 
+\[
+\mathbf{x}^{\prime}=H_{p}\mathbf{x}=\begin{bmatrix}A & \mathbf{t}\\
+\mathbf{v}^{T} & v
+\end{bmatrix}\mathbf{x}
+\]
+
+\end_inset
+
+where the vector 
+\begin_inset Formula $\mathbf{v}=\left(v_{1},v_{2}\right)^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A projective transformation has eight degrees of freedom, and can be computed
+ from four point correspondences between two planes with no three collinear
+ on either plane.
+\end_layout
+
+\begin_layout Standard
+The most fundamental projective invariant is the corss ratio of four collinear
+ points.
+ For a given projective transformation, area scaling varies with position
+ and the orientation of a transformed line depends on both the orientation
+ and position of the source line.
+\end_layout
+
+\begin_layout Standard
+The vector 
+\begin_inset Formula $\mathbf{v}$
+\end_inset
+
+ is responsible for the non-linear effects of the projectivity, mapping
+ a point at infinity to a finite point.
+\begin_inset Formula 
+\[
+\begin{bmatrix}A & \mathbf{t}\\
+\mathbf{v}^{T} & v
+\end{bmatrix}\begin{pmatrix}x_{1}\\
+x_{2}\\
+0
+\end{pmatrix}=\begin{pmatrix}A\begin{pmatrix}x_{1}\\
+x_{2}
+\end{pmatrix}\\
+v_{1}x_{1}+v_{2}x_{2}
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Decomposition of a projective transformation
+\end_layout
+
+\begin_layout Standard
+A projective transformation can be decomposed into a chain of transformations.
+\begin_inset Formula 
+\[
+H=H_{S}H_{A}H_{P}=\begin{bmatrix}sR & \mathbf{t}\\
+\mathbf{0}^{T} & 1
+\end{bmatrix}\begin{bmatrix}K & 0\\
+\mathbf{0}^{T} & 1
+\end{bmatrix}\begin{bmatrix}I & \mathbf{0}\\
+\mathbf{v^{T}} & v
+\end{bmatrix}=\begin{bmatrix}A & \mathbf{t}\\
+\mathbf{v}^{T} & v
+\end{bmatrix}.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $A=sRK+\mathbf{tv}^{T}$
+\end_inset
+
+ and 
+\begin_inset Formula $K$
+\end_inset
+
+ is an upper-triangular matrix normalized as 
+\begin_inset Formula $\det K=1$
+\end_inset
+
+.
+ This decomposition is valid provided 
+\begin_inset Formula $v\neq0$
+\end_inset
+
+ and is unique if 
+\begin_inset Formula $s$
+\end_inset
+
+ is chosen positive.
+ The transformation 
+\begin_inset Formula $H_{p}$
+\end_inset
+
+ is an 
+\emph on
+elation.
+ The inverse of 
+\begin_inset Formula $H$
+\end_inset
+
+ is still projective, giving rise to the alternative decomposed form
+\begin_inset Formula 
+\[
+H=H_{p}H_{A}H_{S}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Invariants
+\end_layout
+
+\begin_layout Standard
+The number of functionally independent invariants is equal to or greater
+ than the number of degrees of freedom of the configuration less the number
+ of degrees of freedom of the transformation.
+\end_layout
+
+\begin_layout Section
+The projective geometry of 1D
+\end_layout
+
+\begin_layout Standard
+The cross ratio is the basic projective invariant of 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Definition
+Cross ratio
+\end_layout
+
+\begin_layout Definition
+Given 4 points 
+\begin_inset Formula $\bar{\mathbf{x}}_{i}$
+\end_inset
+
+ (1D points in homogeneous coordinates), the cross ratio is defined as 
+\begin_inset Formula 
+\[
+\text{Cross}\left(\bar{\mathbf{x}}_{1},\bar{\mathbf{x}}_{2},\bar{\mathbf{x}}_{3},\bar{\mathbf{x}}_{4}\right)=\frac{\left|\bar{\mathbf{x}}_{1}\bar{\mathbf{x}}_{2}\right|\left|\bar{\mathbf{x}}_{3}\bar{\mathbf{x}}_{4}\right|}{\left|\bar{\mathbf{x}}_{1}\bar{\mathbf{x}}_{3}\right|\left|\bar{\mathbf{x}}_{2}\bar{\mathbf{x}}_{4}\right|}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula 
+\[
+\left|\bar{\mathbf{x}}_{i}\bar{\mathbf{x}}_{j}\right|=\det\begin{bmatrix}x_{i1} & x_{j1}\\
+x_{i2} & x_{j2}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+concurrent lines
+\end_layout
+
+\begin_layout Definition
+three or more lines in a plane or higher-dimensional space are said to be
+ concurrent if they intersect at a single point.
+\end_layout
+
+\begin_layout Standard
+The cross ratio of concurrent lines is an invariant to projective transformation
+ of the plane.
 \end_layout
 
 \end_body
