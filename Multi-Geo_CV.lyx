@@ -1582,5 +1582,244 @@ The cross ratio of concurrent lines is an invariant to projective transformation
  of the plane.
 \end_layout
 
+\begin_layout Section
+Recovery of affine and metric properties from images
+\end_layout
+
+\begin_layout Standard
+It is only necessary to specify 
+\begin_inset Formula $4$
+\end_inset
+
+ degrees of freedom in order to determine metric properties.
+ These 
+\begin_inset Formula $4$
+\end_inset
+
+ dof are associated with geometric objects: the line at infinity 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ and the two circular points on 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Line at infinity
+\end_layout
+
+\begin_layout Proposition
+The line at infinity 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ is a fixed line under the projective transformation 
+\begin_inset Formula $H$
+\end_inset
+
+ iff 
+\begin_inset Formula $H$
+\end_inset
+
+ is an affinity.
+\end_layout
+
+\begin_layout Standard
+However, 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ is not fixed pointwise under an affine transformation.
+\end_layout
+
+\begin_layout Standard
+Once the limaged line at infinity is identified in an image of a plane,
+ it is then possible to make affine measurements on the original plane.
+ Lines may be identified as parallel on the original plane if the imaged
+ lines intersect on the imaged 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+.
+ A length ratio on a line may be computer from the cross ratio of the three
+ points specifying the lengths together with the intersection of the line
+ with 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+, which provides the fourth point.
+\end_layout
+
+\begin_layout Standard
+Given line at infinity imaged at 
+\begin_inset Formula $\left(l_{1},l_{2},l_{3}\right)^{T}$
+\end_inset
+
+ where 
+\begin_inset Formula $l_{3}\neq0$
+\end_inset
+
+, a suitable projective point transformation which map 
+\begin_inset Formula $l$
+\end_inset
+
+ back to 
+\begin_inset Formula $l_{\infty}=\left(0,0,1\right)^{T}$
+\end_inset
+
+ is 
+\begin_inset Formula 
+\[
+H=H_{A}\begin{bmatrix}1 & 0 & 0\\
+0 & 1 & 0\\
+l_{1} & l_{2} & l_{3}
+\end{bmatrix}.
+\]
+
+\end_inset
+
+Appy this matrix to every imaged point to affinely rectify the image.
+\end_layout
+
+\begin_layout Subsection
+The circular points
+\end_layout
+
+\begin_layout Definition
+Under any similarity transformation there are two points on 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ which are fixed, called the 
+\emph on
+circular points 
+\emph default
+or 
+\emph on
+absolute points.
+\begin_inset Formula 
+\[
+I=\begin{pmatrix}1\\
+i\\
+0
+\end{pmatrix}\quad J=\begin{pmatrix}1\\
+-i\\
+0
+\end{pmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+The circuluar points 
+\begin_inset Formula $I,J$
+\end_inset
+
+ are fixed points under the projective transformation 
+\begin_inset Formula $H$
+\end_inset
+
+ iff 
+\begin_inset Formula $H$
+\end_inset
+
+ is a similarity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Every circle intersects 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ at the circular points.
+ A circle can be computed using the general formula for a conic defined
+ by five points, where the five points are the three points that specify
+ the circle in Euclidean geometry augmented with the two circular points.
+\end_layout
+
+\begin_layout Standard
+Also, since 
+\begin_inset Formula $I=\left(1,0,0\right)+i\left(0,1,0\right)$
+\end_inset
+
+, decomposed int othe orthogonal directions of Euclidean gemotry, it is
+ not surprising that once the circular points are identified, orthogonality,
+ and other metric properties are then determined.
+\end_layout
+
+\begin_layout Definition
+the conic 
+\begin_inset Formula 
+\[
+C_{\infty}^{*}=IJ^{T}+JI^{T}
+\]
+
+\end_inset
+
+is dual to the circular points.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+The dual conic 
+\begin_inset Formula $C_{\infty}^{*}$
+\end_inset
+
+ is fixed under the projective transformation 
+\begin_inset Formula $H$
+\end_inset
+
+ iff 
+\begin_inset Formula $H$
+\end_inset
+
+ is a similarity.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Chapter
+Projective Geometry and Transformations of 3D
+\end_layout
+
+\begin_layout Standard
+
+\end_layout
+
 \end_body
 \end_document
