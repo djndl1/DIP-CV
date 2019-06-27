@@ -1818,7 +1818,336 @@ Projective Geometry and Transformations of 3D
 \end_layout
 
 \begin_layout Standard
+In 
+\begin_inset Formula $\mathbb{P}^{3}$
+\end_inset
 
+, there is a 
+\emph on
+plane 
+\emph default
+at infinity 
+\begin_inset Formula $\pi_{\infty}$
+\end_inset
+
+, analog of 
+\begin_inset Formula $l_{\infty}$
+\end_inset
+
+ of 
+\begin_inset Formula $\mathbb{P}^{2}$
+\end_inset
+
+.
+ Parallel lines and parallel palens intersect on 
+\begin_inset Formula $\pi_{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Points and projective transformation
+\end_layout
+
+\begin_layout Standard
+Points are represented by a 
+\begin_inset Formula $4$
+\end_inset
+
+-vector.
+ A projective transformation acting on 
+\begin_inset Formula $\mathbb{P}^{3}$
+\end_inset
+
+ is a linear transformation on homogeneous 
+\begin_inset Formula $4$
+\end_inset
+
+-vectors represented by a non-singular 
+\begin_inset Formula $4\times4$
+\end_inset
+
+ matrix
+\begin_inset Formula 
+\[
+\mathbf{x}^{\prime}=H\mathbf{x}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $H$
+\end_inset
+
+ has 
+\begin_inset Formula $15$
+\end_inset
+
+ degrees of freedom.
+ The map is a collineation (lines are mapped to lines), which preserves
+ incidence relations such as the intersection point of a line with a plane,
+ and order of contact.
+\end_layout
+
+\begin_layout Standard
+In 
+\begin_inset Formula $\mathbb{P}^{3}$
+\end_inset
+
+ points and planes are dual.
+ Lines are self-dual in 
+\begin_inset Formula $\mathbb{P}^{3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Planes
+\end_layout
+
+\begin_layout Standard
+A plane in 3D space may be written as 
+\begin_inset Formula 
+\[
+\pi_{1}x+\pi_{2}y+\pi_{3}z+\pi_{4}=0,
+\]
+
+\end_inset
+
+represented in homogenous coordinates 
+\begin_inset Formula $\boldsymbol{\mathbf{\pi}}=\left(\pi_{1},\pi_{2},\pi_{3},\pi_{4}\right)^{T}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+Three points define a plane.
+\end_layout
+
+\begin_layout Remark*
+Given three point 
+\begin_inset Formula $\mathbf{\mathbf{x}_{1}}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{x}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{x_{3}}$
+\end_inset
+
+ that are linearly independent, and a plane vector 
+\begin_inset Formula $\boldsymbol{\pi}$
+\end_inset
+
+, the system of linear equations
+\begin_inset Formula 
+\[
+\begin{bmatrix}\mathbf{x}_{1}\\
+\mathbf{x}_{2}\\
+\mathbf{x}_{3}
+\end{bmatrix}\boldsymbol{\pi}=0
+\]
+
+\end_inset
+
+is full rank matrix, giving a unique solution/kernel to 
+\begin_inset Formula $\boldsymbol{\pi}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Remark*
+To determine this plane more directly, consider a general point 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ on 
+\begin_inset Formula $\boldsymbol{\pi}$
+\end_inset
+
+ and three points 
+\begin_inset Formula $\mathbf{x}_{1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathbf{x}_{2}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathbf{x}_{3}$
+\end_inset
+
+.
+ Since this general point is a linear combination of the latter three, giving
+ a linear dependent list, the determinant of the matrix 
+\begin_inset Formula 
+\[
+\det\begin{bmatrix}\mathbf{x} & \mathbf{x}_{1} & \mathbf{x}_{2} & \mathbf{x}_{3}\end{bmatrix}=0
+\]
+
+\end_inset
+
+expanding it along 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ gives 
+\begin_inset Formula 
+\[
+x_{1}D_{234}-x_{2}D_{134}+x_{3}D_{124}-x_{4}D_{123}=0.
+\]
+
+\end_inset
+
+Then the plane coeffcients 
+\begin_inset Formula 
+\[
+\boldsymbol{\pi}=\left(D_{234},-D_{134},D_{123},-D_{123}\right)^{T}.
+\]
+
+\end_inset
+
+In vector algebra 
+\begin_inset Formula 
+\[
+\boldsymbol{\pi}=\begin{pmatrix}\left(\tilde{\mathbf{x}}_{1}-\tilde{\mathbf{x}}_{3}\right)\times\left(\tilde{\mathbf{x}}_{2}-\tilde{\mathbf{x}}_{3}\right)\\
+-\tilde{\mathbf{x}}_{3}^{T}\left(\tilde{\mathbf{x}}_{1}\times\tilde{\mathbf{x}}_{2}\right)
+\end{pmatrix}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\tilde{\mathbf{x}}_{i}$
+\end_inset
+
+ is the Euclidean coordinates of point 
+\begin_inset Formula $\mathbf{x}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Three planes define a point.
+\end_layout
+
+\begin_layout Remark*
+This is the dual case of three points defining a plane.
+ Consider the following the 
+\begin_inset Formula 
+\[
+\begin{bmatrix}\boldsymbol{\pi}_{1}^{T}\\
+\boldsymbol{\pi}_{2}^{T}\\
+\boldsymbol{\pi}_{3}^{T}
+\end{bmatrix}\mathbf{x}=0.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Under the point transformation 
+\begin_inset Formula $\mathbf{x}^{\prime}=H\mathbf{x}$
+\end_inset
+
+, a plane transformation is 
+\begin_inset Formula 
+\[
+\boldsymbol{\pi}^{\prime}=\left(H^{-1}\right)^{T}\boldsymbol{\pi}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Parameterized points on a plane
+\end_layout
+
+\begin_layout Proposition
+???
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Lines
+\end_layout
+
+\begin_layout Definition
+A line is defined by the join of two points or the intersection of two planes.
+\end_layout
+
+\begin_layout Standard
+Think of a line as defined by its intersection with two orthogonal planes.
+ Lines have 
+\begin_inset Formula $4$
+\end_inset
+
+ degrees of freedom in 3D space.
+ Representing lines in homogeneous coordinates requires 
+\begin_inset Formula $5$
+\end_inset
+
+-vectors, inconvenient to use in mathematical expressions.
+\end_layout
+
+\begin_layout Subsubsection
+Null-space and representation
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Section
+The hierarchy of transformation
+\end_layout
+
+\begin_layout Subsection
+The screw decomposition
+\end_layout
+
+\begin_layout Proposition
+Any particular translation and rotation is equivalent to a rotation about
+ a screw axis together with a translation along the screw axis.
+ The screw axis is parallel to the rotation axis.
 \end_layout
 
 \end_body
