@@ -2144,10 +2144,197 @@ The hierarchy of transformation
 The screw decomposition
 \end_layout
 
+\begin_layout Standard
+The screw decomposition enables any Euclidean action (a rotation composed
+ with a translation) to be reduced to a situation almost as simple as the
+ 2D case.
+\end_layout
+
+\begin_layout Definition
+\begin_inset CommandInset href
+LatexCommand href
+name "Screw axis"
+target "https://en.wikipedia.org/wiki/Screw_axis"
+literal "false"
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Proposition
 Any particular translation and rotation is equivalent to a rotation about
  a screw axis together with a translation along the screw axis.
  The screw axis is parallel to the rotation axis.
+\end_layout
+
+\begin_layout Standard
+TODO
+\end_layout
+
+\begin_layout Chapter
+Estimation - 2D Projective Transformations
+\end_layout
+
+\begin_layout Standard
+Consider a set of point correspondences 
+\begin_inset Formula $\mathbf{x_{i}\leftrightarrow\mathbf{x}_{i}^{\prime}}$
+\end_inset
+
+ between two images.
+ The goal is to compute a 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ matrix 
+\begin_inset Formula $H$
+\end_inset
+
+ s.t.
+ 
+\begin_inset Formula $H\mathbf{x}_{i}=\mathbf{x}_{i}^{\prime}$
+\end_inset
+
+ for each 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ First, the number of corresponding points should be determined.
+ The given corresponding points are always the ideal choice and there may
+ be more.
+ There are algorithms that find the best solution.
+\end_layout
+
+\begin_layout Section
+The Direct Linear Transformation (DLT) algorithm
+\end_layout
+
+\begin_layout Standard
+Given a set of four point correspondences 
+\begin_inset Formula $\mathbf{x}_{i}\leftrightarrow\mathbf{x}_{i}^{\prime}$
+\end_inset
+
+, and the transformation 
+\begin_inset Formula $\mathbf{x}_{i}^{\prime}=H\mathbf{x}_{i}$
+\end_inset
+
+, the equation may be written as 
+\begin_inset Formula 
+\[
+\mathbf{x}_{i}^{\prime}\times H\mathbf{x}_{i}=\mathbf{0}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part
+Camera Geometry and Single View Geometry
+\end_layout
+
+\begin_layout Chapter
+Camera models
+\end_layout
+
+\begin_layout Standard
+The camera mapping is represented by a matrix, and in case of mapping points
+ a 
+\begin_inset Formula $3\times4$
+\end_inset
+
+ matrix 
+\begin_inset Formula $P$
+\end_inset
+
+ which maps from homogenous coordinates of a world point in 
+\begin_inset Formula $3$
+\end_inset
+
+D space t ohomogeneous coordinates of the imaged point on the image plane.
+ The matrix has in general 
+\begin_inset Formula $11$
+\end_inset
+
+ degrees of freedom and the properties of the camera, such as its center
+ and focal length may be extracted from it.
+\end_layout
+
+\begin_layout Standard
+A camera is a mapping between the 3D world (object space) and a 2D image.
+ The principal camera of interest is 
+\emph on
+central projection.
+ 
+\emph default
+However all cameras modeling cnetral projection are specializations of the
+ 
+\emph on
+general projective camera
+\emph default
+.
+ The specialized models fall into two major classes: those with a finite
+ center and those with center at infinity.
+ Of the cameras at infinity, the 
+\emph on
+affine camera
+\emph default
+ is of particular importance because it is the natural generalization of
+ parallel projection.
+\end_layout
+
+\begin_layout Section
+Finite cameras
+\end_layout
+
+\begin_layout Standard
+These models are designed for CCD-like sensors, but also applicable to other
+ cameras like X-ray images, scanned photographic negatives, scanned photographs
+ from enlarged negatives.
+\end_layout
+
+\begin_layout Subsection
+The basic pinhole model
+\end_layout
+
+\begin_layout Standard
+\begin_inset Graphics
+	filename pinhole_camera.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Definition
+basic definitions
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $C$
+\end_inset
+
+: camera center;
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $Z$
+\end_inset
+
+ axis: principal ray/axis;
+\end_layout
+
+\begin_layout Definition
+\begin_inset Formula $p$
+\end_inset
+
+: principal point, where the principal axis meets the image plane
+\end_layout
+
+\begin_layout Definition
+principal plane: the plane through the camera center parallel to the image
+ plane
 \end_layout
 
 \end_body
