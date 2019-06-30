@@ -2337,5 +2337,213 @@ principal plane: the plane through the camera center parallel to the image
  plane
 \end_layout
 
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+Homogeneous coordinates representation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\begin{pmatrix}X\\
+Y\\
+Z\\
+1
+\end{pmatrix}\mapsto\begin{pmatrix}fX\\
+fY\\
+1
+\end{pmatrix}=\begin{bmatrix}f &  &  & 0\\
+ & f &  & 0\\
+ &  & 1 & 0
+\end{bmatrix}\begin{pmatrix}X\\
+Y\\
+Z\\
+1
+\end{pmatrix}.
+\]
+
+\end_inset
+
+or 
+\begin_inset Formula 
+\[
+\mathbf{x}=P\mathbf{X}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $P$
+\end_inset
+
+ is the 
+\begin_inset Formula $3\times4$
+\end_inset
+
+ camera projection matrix, also written as 
+\begin_inset Formula 
+\[
+P=\text{diag}\left(f,f,1\right)\left[I|\mathbf{0}\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The above representatio assumes that the origin of coordinates in the image
+ plane is at the principal point, which in practice is often not the case.
+ The transformation matrix may be rewritten as 
+\begin_inset Formula 
+\[
+P=\begin{bmatrix}f &  & p_{x} & 0\\
+ & f & p_{y} & 0\\
+ &  & 1 & 0
+\end{bmatrix}.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\left(p_{x},p_{y}\right)$
+\end_inset
+
+ is the coordinates of the principal point.
+ The transformation is now 
+\begin_inset Formula 
+\[
+\mathbf{x}=K\begin{bmatrix}I & \mathbf{0}\end{bmatrix}\mathbf{X_{cam}}.
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $K$
+\end_inset
+
+ is called the camera calibration matrix.
+ The camera here is assumed to be located at the origin of a Euclidean coordinat
+e system with the principal axis of the camera pointing straight down the
+ 
+\begin_inset Formula $Z$
+\end_inset
+
+-axis and 
+\begin_inset Formula $\mathbf{X_{cam}}$
+\end_inset
+
+ is expresses in this coordinate system, called the 
+\emph on
+camera coordinate system.
+\end_layout
+
+\begin_layout Subsubsection
+Camera rotation and translation
+\end_layout
+
+\begin_layout Standard
+In general, points in space will be expressed in terms of a different Euclidean
+ coordinate frame other than camera coordinate system, known as the 
+\emph on
+world coordinate frame
+\emph default
+.
+ Suppose 
+\begin_inset Formula $\mathbf{X}$
+\end_inset
+
+ is the homogeneous coordinates of a point, then 
+\begin_inset Formula 
+\[
+\mathbf{X_{cam}}=\begin{bmatrix}R & -R\widetilde{C}\\
+0 & 1
+\end{bmatrix}\mathbf{X}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\widetilde{C}$
+\end_inset
+
+ is the Euclidean coordinates of the camera center in the world coordinate
+ frame and 
+\begin_inset Formula $R$
+\end_inset
+
+ is a 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ rotation matrix representing the orientation of the camera coordinate frame.
+\end_layout
+
+\begin_layout Standard
+The transformation is then rewritten as 
+\begin_inset Formula 
+\[
+\mathbf{x}=KR\begin{bmatrix}I & -\widetilde{C}\end{bmatrix}X.
+\]
+
+\end_inset
+
+Here 
+\begin_inset Formula $K$
+\end_inset
+
+ is the 
+\emph on
+internal camera parameters
+\emph default
+, or the 
+\emph on
+internal orientation.
+ 
+\emph default
+The parameters of 
+\begin_inset Formula $R$
+\end_inset
+
+ and 
+\begin_inset Formula $\widetilde{C}$
+\end_inset
+
+ which relate the camera orientation and position to a world coordinate
+ system are called 
+\emph on
+external parameter
+\emph default
+ or the 
+\emph on
+exterior orientation.
+\end_layout
+
+\begin_layout Standard
+The transformation is often also written as 
+\begin_inset Formula 
+\[
+P=K\begin{bmatrix}R & \mathbf{t}\end{bmatrix}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathbf{t}=-R\widetilde{C}$
+\end_inset
+
+, to represent the world-to-image transformation as 
+\begin_inset Formula $\widetilde{\mathbf{X}}_{\text{cam}}=R\widetilde{\mathbf{X}}+\mathbf{t}$
+\end_inset
+
+.
+\end_layout
+
 \end_body
 \end_document
