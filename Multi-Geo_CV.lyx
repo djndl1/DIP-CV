@@ -2248,11 +2248,11 @@ The camera mapping is represented by a matrix, and in case of mapping points
 \begin_inset Formula $P$
 \end_inset
 
- which maps from homogenous coordinates of a world point in 
+ which maps from homogeneous coordinates of a world point in 
 \begin_inset Formula $3$
 \end_inset
 
-D space t ohomogeneous coordinates of the imaged point on the image plane.
+D space to homogeneous coordinates of the imaged point on the image plane.
  The matrix has in general 
 \begin_inset Formula $11$
 \end_inset
@@ -2268,7 +2268,7 @@ A camera is a mapping between the 3D world (object space) and a 2D image.
 central projection.
  
 \emph default
-However all cameras modeling cnetral projection are specializations of the
+However all cameras modeling central projection are specializations of the
  
 \emph on
 general projective camera
@@ -2301,6 +2301,8 @@ The basic pinhole model
 \begin_layout Standard
 \begin_inset Graphics
 	filename pinhole_camera.png
+	scale 70
+	rotateOrigin center
 
 \end_inset
 
@@ -2389,7 +2391,7 @@ where
  camera projection matrix, also written as 
 \begin_inset Formula 
 \[
-P=\text{diag}\left(f,f,1\right)\left[I|\mathbf{0}\right].
+P=\text{diag}\left(f,f,1\right)\begin{bmatrix}I & \mathbf{0}\end{bmatrix}.
 \]
 
 \end_inset
@@ -2543,6 +2545,255 @@ where
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection
+CCD cameras
+\end_layout
+
+\begin_layout Standard
+In case of CCD cameras, there is the additional possibility of having non-square
+ pixels.
+ This has the extra effect of introducing unequal scale factors in each
+ direction.
+\end_layout
+
+\begin_layout Standard
+Suppose the number of pixels per unit distance in image coordinates are
+ 
+\begin_inset Formula $m_{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $m_{y}$
+\end_inset
+
+ in the 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $y$
+\end_inset
+
+ directions.
+ The pixel coordinates is obtained by multiplying 
+\begin_inset Formula $K$
+\end_inset
+
+ on the left by an extra factor 
+\begin_inset Formula $\text{diag}\left(m_{x},m_{y},1\right)$
+\end_inset
+
+.
+ Thus, the general form of the calibration matrix of a CCD camera is 
+\begin_inset Formula 
+\[
+K=\begin{bmatrix}\alpha_{x} &  & x_{0}\\
+ & \alpha_{y} & y_{0}\\
+ &  & 1
+\end{bmatrix}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha_{x}=fm_{x}$
+\end_inset
+
+ and 
+\begin_inset Formula $\alpha_{y}=fm_{y}$
+\end_inset
+
+ and 
+\begin_inset Formula $\left(x_{0},y_{0}\right)=\left(m_{x}p_{x},m_{y}p_{y}\right)$
+\end_inset
+
+ is the principal point in terms of pixel dimensions.
+\end_layout
+
+\begin_layout Standard
+Moreover, a 
+\emph on
+skew 
+\emph default
+parameter 
+\begin_inset Formula $s$
+\end_inset
+
+ is introduced.
+\begin_inset Formula 
+\[
+K=\begin{bmatrix}\alpha_{x} & s & x_{0}\\
+ & \alpha_{y} & y_{0}\\
+ &  & 1
+\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Combining all those model together, we have a 
+\emph on
+finite projective camera, 
+\begin_inset Formula 
+\[
+P=KR\begin{bmatrix}I & -\widetilde{C}\end{bmatrix},
+\]
+
+\end_inset
+
+
+\emph default
+It has a 
+\begin_inset Formula $11$
+\end_inset
+
+ degrees of freedom, exactly the number of dof of a 
+\begin_inset Formula $3\times4$
+\end_inset
+
+ matrix.
+ 
+\begin_inset Formula $KR$
+\end_inset
+
+ is nonsingular, and can be decomposed using 
+\begin_inset Formula $RQ$
+\end_inset
+
+ matrix decomposition into 
+\begin_inset Formula $K$
+\end_inset
+
+ and 
+\begin_inset Formula $R$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+The set of camera matrices of finite projective cameras is identical with
+ the set of homogenous 
+\begin_inset Formula $3\times4$
+\end_inset
+
+ matrices for which the left hand 
+\begin_inset Formula $3\times3$
+\end_inset
+
+ submatrix is non-singular.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+General projective cameras
+\end_layout
+
+\begin_layout Standard
+A 
+\emph on
+general projective camera 
+\emph default
+is one represented by an arbitrary homogeneous 
+\begin_inset Formula $3\times4$
+\end_inset
+
+ matrix of rank 
+\begin_inset Formula $3$
+\end_inset
+
+ (so that the range of the transformation is a full plane) and has 
+\begin_inset Formula $11$
+\end_inset
+
+ dof.
+\end_layout
+
+\begin_layout Subsection
+Camera anatomy
+\end_layout
+
+\begin_layout Standard
+A general projective camera may be decomposed into blocks according to 
+\begin_inset Formula 
+\[
+P=\begin{bmatrix}M & p_{4}\end{bmatrix}.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The camera center is the null space of 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ A finite camera has the center at 
+\begin_inset Formula $\left(\widetilde{C},1\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Proposition
+All points on a ray from the camera center are mapped to the same image.
+\end_layout
+
+\begin_layout Proof
+Given the camera center 
+\begin_inset Formula $C$
+\end_inset
+
+ and any point 
+\begin_inset Formula $A$
+\end_inset
+
+, any point on 
+\begin_inset Formula $CA$
+\end_inset
+
+ is represented by 
+\begin_inset Formula 
+\[
+\mathbf{X}=\lambda A+\left(1-\lambda\right)C.
+\]
+
+\end_inset
+
+Apply 
+\begin_inset Formula $P$
+\end_inset
+
+ to both sides, 
+\begin_inset Formula 
+\[
+\mathbf{x}=P\mathbf{X}=\lambda PA.
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
 \end_layout
 
 \end_body
