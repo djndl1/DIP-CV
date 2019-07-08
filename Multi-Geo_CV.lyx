@@ -2796,5 +2796,86 @@ Apply
 
 \end_layout
 
+\begin_layout Proposition
+With the columns of 
+\begin_inset Formula $P$
+\end_inset
+
+ denoted by 
+\begin_inset Formula $p_{1},p_{2},p_{3},p_{4}$
+\end_inset
+
+, then 
+\begin_inset Formula $p_{1},p_{2},p_{3}$
+\end_inset
+
+ are the vanishing point of the world coordinate 
+\begin_inset Formula $X,Y,Z$
+\end_inset
+
+ axes respectively, 
+\begin_inset Formula $p_{4}$
+\end_inset
+
+ is the image of the world origin.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+The principal plane consists of the set of points 
+\begin_inset Formula $\mathbf{x}$
+\end_inset
+
+ which are imaged on the line at infinity of the image.
+ A point lies on the principal plane of the camera iff 
+\begin_inset Formula $p^{3T}\mathbf{x}=0$
+\end_inset
+
+, where 
+\begin_inset Formula $p^{3T}$
+\end_inset
+
+ is the third row vector of 
+\begin_inset Formula $P$
+\end_inset
+
+.
+ In other words, 
+\begin_inset Formula $p^{3}$
+\end_inset
+
+ is the vector representating the principal plane of the camera.
+ The other two axis planes of the camera coordinate frame have similar results.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Proposition
+Points 
+\begin_inset Formula $D=\left(d^{T},0\right)$
+\end_inset
+
+ on the plane at infinity represent vanishing points, mapping to 
+\begin_inset Formula 
+\[
+\mathbf{x}=PD=\begin{bmatrix}M & p_{4}\end{bmatrix}D=Md.
+\]
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
