@@ -1,10 +1,15 @@
-#LyX 2.3 created this file. For more info see http://www.lyx.org/
-\lyxformat 544
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
 \begin_document
 \begin_header
 \save_transient_properties true
 \origin unavailable
 \textclass book
+\begin_preamble
+% Added by lyx2lyx
+\renewcommand{\textendash}{--}
+\renewcommand{\textemdash}{---}
+\end_preamble
 \use_default_options true
 \begin_modules
 algorithm2e
@@ -29,8 +34,6 @@ theorems-ams-extended-chap-bytype
 \font_osf false
 \font_sf_scale 100 100
 \font_tt_scale 100 100
-\use_microtype false
-\use_dash_ligatures true
 \graphics default
 \default_output_format default
 \output_sync 0
@@ -60,7 +63,6 @@ theorems-ams-extended-chap-bytype
 \suppress_date false
 \justification true
 \use_refstyle 1
-\use_minted 0
 \index Index
 \shortcut idx
 \color #008000
@@ -69,10 +71,7 @@ theorems-ams-extended-chap-bytype
 \tocdepth 3
 \paragraph_separation indent
 \paragraph_indentation default
-\is_math_indent 0
-\math_numbering_side default
-\quotes_style english
-\dynamic_quotes 0
+\quotes_language english
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
@@ -90,7 +89,7 @@ Intro
 \end_layout
 
 \begin_layout Standard
-An introduction t othe principal ideas.
+An introduction to the principal ideas.
 \end_layout
 
 \begin_layout Section
@@ -104,7 +103,7 @@ Straightness is preserved, the most general requirement on the mapping.
 \begin_layout Standard
 In Euclidean space, parallel lines do not meet.
  By adding an infinity point to a Euclidean space, projective space is introduce
-d, an extension of euclidean space in which two lines always meet in a point.
+d, an extension of Euclidean space in which two lines always meet in a point.
 \end_layout
 
 \begin_layout Standard
@@ -152,7 +151,6 @@ In classiclal Euclidean geometry all points are the same, no distringuished
 LatexCommand href
 name "Euclidean transformation"
 target "https://en.wikipedia.org/wiki/Rigid_transformation"
-literal "false"
 
 \end_inset
 
@@ -188,7 +186,7 @@ Parallelism is not a concept of projective geometry, since all lines in
 \end_layout
 
 \begin_layout Standard
-The geometry of the proejctive plane and a distinguished line is known as
+The geometry of the projective plane and a distinguished line is known as
  
 \emph on
 affine geometry
@@ -215,7 +213,7 @@ Camera Projections
 \end_layout
 
 \begin_layout Standard
-The usual way of modelling the drop form 3D world to a 2D image is by 
+The usual way of modelling the drop from 3D world to a 2D image is by 
 \emph on
 central projection
 \emph default
@@ -288,7 +286,6 @@ Homogeneous representation of points and lines on a plane
 LatexCommand href
 name "Equivalence class"
 target "https://en.wikipedia.org/wiki/Equivalence_class"
-literal "false"
 
 \end_inset
 
@@ -1009,9 +1006,6 @@ From the proof
 \begin_inset CommandInset ref
 LatexCommand vpageref
 reference "thm:non-singular matrix for projectivity"
-plural "false"
-caps "false"
-noprefix "false"
 
 \end_inset
 
@@ -1193,7 +1187,6 @@ A similarity transformation (similarity) is an isometry composed with an
 LatexCommand href
 name "isotropic"
 target "https://en.wikipedia.org/wiki/Isotropy"
-literal "false"
 
 \end_inset
 
@@ -2155,7 +2148,6 @@ The screw decomposition enables any Euclidean action (a rotation composed
 LatexCommand href
 name "Screw axis"
 target "https://en.wikipedia.org/wiki/Screw_axis"
-literal "false"
 
 \end_inset
 
