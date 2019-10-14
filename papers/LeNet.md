@@ -80,7 +80,7 @@ $$
 W_{k}=W_{k-1}-\epsilon\frac{\partial E^{p_{k}}\left(W\right)}{\partial W}
 $$
 
-SGD usually converges considerably faster than regular gradient descent and second order methods on large training sets with redundant smaples.
+SGD usually converges considerably faster than regular gradient descent and second order methods on large training sets with redundant samples.
 
 # Ideas
 
