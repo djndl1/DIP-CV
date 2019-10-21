@@ -105,3 +105,39 @@ Each layer is initialized from a zero-mean Gaussian distribution with standard d
 Learning rates are equal for all layers. The learning rate is divided by $10$ when the validation error stopped improving with the current learning rate. The learning rate was initialized at $0.01$ and reduced three times prior to termination.
 
 The whole training took five to six days on two Nvidia GTX 580 3GB GPUs.
+
+# Implementation
+
+```python
+import keras
+from keras import Sequential
+from keras import models
+from keras.layers import Conv2D
+from keras.layers import MaxPool2D
+from keras.layers import Dropout
+from keras.optimizers import SGD
+from keras.layers import Dense
+from keras.layers import Flatten
+
+input_shape = (227, 227, 3)
+
+alexnet_model = Sequential([
+    Conv2D(96, (11,11), strides=4, input_shape=input_shape, activation='relu'),
+    MaxPool2D((3,3), 2),
+    Conv2D(256, (5, 5),  activation='relu', padding='same'),
+    MaxPool2D((3,3), 2),
+    Conv2D(384, (3, 3),  activation='relu', padding='same'),
+    Conv2D(384, (3, 3),  activation='relu', padding='same'),
+    Conv2D(256, (3, 3),  activation='relu', padding='same'),
+    MaxPool2D((3,3), 2),
+    Flatten(),
+    Dense(4096, activation='relu'),
+    Dropout(0.5),
+    Dense(4096, activation='relu'),
+    Dropout(0.5),
+    Dense(1000, activation='softmax')
+])
+
+alexnet_model.summary()
+alexnet_model.compile(optimizer='SGD', loss=keras.losses.categorical_crossentropy, metrics=['accuracy'])
+```
