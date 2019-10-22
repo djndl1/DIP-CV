@@ -4,7 +4,7 @@
 
 # Background
 
-Multiplayer Neural Networks trained with the backpropagation algorithm constitute the best example of a successful Gradient-Based Learning technique. It can be usedc to synthesize a complex decision surface that can classify high-dimension patterns such as handwritten characters with minimal preprocessing.
+Multiplayer Neural Networks trained with the backpropagation algorithm constitute the best example of a successful Gradient-Based Learning technique. It can be used to synthesize a complex decision surface that can classify high-dimension patterns such as handwritten characters with minimal preprocessing.
 
 The variability and richness of natural data make it almost impossible to build an accurate recognition system entirely by hand. Most pattern recognition systems are built using a combination of automatic learning techniques and hand-crafted algorithms, consisting of 
 
@@ -13,6 +13,8 @@ The variability and richness of natural data make it almost impossible to build 
 - _classifier_: general-purpose and trainable; 
 
 One problem with the approach is that the recognition accuracy is largely determined by the ability of the designer to come up with an appropriate set of features.
+
+Most practical pattern recognition systems are composed of multiple modules. The information carried from module to module is besst represented as _graphs_ with numerical information attached to the arcs. Typically each module is manually optimized or sometimes trained outside of its context.
 
 Faster machines, larger real data and the availability of powerful learning techniques has changed the situation that feature extractors were the center of pattern recognition research.
 
@@ -66,7 +68,7 @@ $H(W)$ is chosen such that it takes large values on parameters that belong to hi
 
 The general problem of minimizing a function w.r.t. a set of parameters is at the root of many issues in CS. In Gradient-based learning, the loss function can be minimized by estimating the impact of small variations of the parameter values on the loss function, measured by the gradient of the loss function w.r.t. the parameters. 
 
-the simplest miminization procedure is the _gradient descent algorithm_ where $W$ is iteratively adjusted as:
+The simplest miminization procedure is the _gradient descent algorithm_ where $W$ is iteratively adjusted as:
 
 $$
 W_{k}=W_{k-1}-\epsilon\frac{\partial E\left(W\right)}{\partial W}
@@ -74,7 +76,7 @@ $$
 
 where $\epsilon$ is a scalar (constant or variable if necessary). The usefulness of the second-order methods, such as Newton, Quasi-Newton, Conjugate Gradient, to large learning machines is very limited.
 
-A popular one is the _stochastic gradient algorithm. It consists in updating the parameters vector using a noisy, or approximated version of the average gradient:
+A popular one is the _stochastic gradient algorithm_. It consists in updating the parameters vector using a noisy, or approximated version of the average gradient:
 
 $$
 W_{k}=W_{k-1}-\epsilon\frac{\partial E^{p_{k}}\left(W\right)}{\partial W}
@@ -82,9 +84,27 @@ $$
 
 SGD usually converges considerably faster than regular gradient descent and second order methods on large training sets with redundant samples.
 
+### Gradient Back-Propagation
+
+The presence of local minima did not seem to be a major impediment to the success of early non-linear gradient-based Learning techniques. Back-propogation applied to multi-layer neural networks with sigmoidal units can solve complicated learning tasks. 
+
+The basic idea of back-propagation is that gradients can be computed efficently by propagation from the output to the input. Backpropagation is the most widely used neural network learning algorithm.
+
+Consider a system as a cascade of modules, each of which implements a function $X_{n} = F_{n}(W_{n}, X_{n-1})$, where $X_{n}$ is a vector representing the output of the module (a subset of $W$) and $X_{n-1}$ is the module's input vector as well as the previous module's output vector. The input $X_{0}$ to the first module is the input pattern $Z^{p}$. If the partial derivative of $E^{p}$ w.r.t. $X_{n}$ is known, then the partial derivative of $E^{p}$ w.r.t. $W_n$ and $X_{n-1}$ can be computed using the backward recurrence:
+
+$$
+\frac{\partial E^{p}}{\partial W_{n}}=\frac{\partial F}{\partial W}\left(W_{n},X_{n-1}\right)\frac{\partial E^{p}}{\partial X_{n}} \\ 
+
+\frac{\partial E^{p}}{\partial X_{n-1}}=\frac{\partial F}{\partial X}\left(W_{n},X_{n-1}\right)\frac{\partial E^{p}}{\partial X_{n}}
+$$
+
+Traditional MLNN are a special case of the above where the state information $X_{n}$ is represented with fixed-size vector, and where the modules are alternated layers of matrix multiplications and component-wise sigmoid functions (the neurons). The state information in complex recognition is best represented by graphs with numerical information attached to the arcs. Each module (Graph Transformer) takes on or more graphs as input and produces a graph as output.
+
+
 # Ideas
 
 Better pattern recognition systems can be built by relying more on automatic learning, and less on hand-designed heuristics. Hand-crafted feature extraction can be advantageously replace4d by carefully designed learning machines that operate directly on pixel images. 
 
+For handwriting recognition, [1] intends to trains the system at the level of whole strings of characters through gradient-based learning and eliminates segmentation altogether. [1] 
 
 
