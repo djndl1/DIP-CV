@@ -1,6 +1,27 @@
-A downward-looking camera attached to a multirotor is used to find the target on the ground. The UAV descends to the target and hovers above the target for a few seconds to inspect the target. A high-level decision algorithm based on an OODA (observe, orient, decide, and act) loop was developed as a solution to address the problem. The proposed system performed hovering above the target in three different stages: locate, descend, and hover.
+The paper focuses on target detection and navigation. A downward-looking camera attached to a multirotor is used to find the target on the ground. The UAV descends to the target and hovers above the target for a few seconds to inspect the target. A high-level decision algorithm based on an OODA (observe, orient, decide, and act) loop was developed as a solution to address the problem. The proposed system performed hovering above the target in three different stages: locate, descend, and hover.
 
-OODA (observer, orient, decide, and act) decision loop: 
+The main node receives the center coordinates of the detected target from the target detection node as an input. This is then converted to the target location in the inertial frame by using the pinhole camera model.
+
+The typical mission is:
+
+1. the UAV takes off;
+
+2. searches for a ground target;
+
+3. If a target is found, the UAV changes its original path and hovers above the target  for a few seconds for an action
+
+4. After hovering, the UAV flies to the next waypoint and starts to search for other targets.
+
+
+# Target Detection Algorithm
+
+Hough circle method; color detection;
+
+# Conversion of 2D Image Coordinates to World Coordinates
+
+image plane => camera frame (a downward-looking frame, not the actual camera orientation) => body frame => inertial frame (world frame)
+
+Note that no gimbal mechanism is used, meaning that the camera is not always looking downward, a correction is needed.
 
 # Navigation Algorithm
 
