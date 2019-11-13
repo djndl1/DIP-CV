@@ -25,7 +25,10 @@ Note that no gimbal mechanism is used, meaning that the camera is not always loo
 
 # Navigation Algorithm
 
+In the locate stage, the estimated target position is used to move the UAV laterally to the target's $x$, $y$ position without descending. In the descend stage, the lateral deviation between the target's position and the UAV's position is calculated. If the deviation is within the tolerance, the height of the UAV is reduced by a predefined parameter. Otherwise, the locate stage will be repeated. This process continues until the UAV reaches the hovering height. This process happens in quick succession.
+
 ```python
+stage = Stage.LOCATE
 for img_i in frames:
     current_pose = get_current_UAV_pose()
     if istargetFound():                                       # detect and find the target
@@ -34,33 +37,37 @@ for img_i in frames:
         last_target_centroid = target_centroid
         target_pose = compute_target_pose(current_pose, target_centroid)
         
-        if stage == 1: # locate and move to the target horizontally
+        if stage == Stage.LOCATE: # locate and move to the target horizontally
             hover_pose = target_pose
-            hover_pose.z = current_pose.z # but do not descend
-            stage = 2  # enter descending stage
-        else if stage == 2:
+            hover_pose.z = current_pose.z   # but do not descend
+            next_pose = hover_pose          # to move 
+            stage = Stage.DESCNED  # enter descending stage
+        elf stage == Stage.DESCNED:
             if distanceXY(target_pose, current_pose) < t:   # already right over the target
                 if hover_height < current_pose.z - descend_step:
                     hover_pose.z = current_pose.z - descend_step
                 else:
                     hover_pose.z = hover_height
+                    stage = Stage.HOVER
+                next_pose = hover_pose
             else:
-                stage = 1 # not at the right position, locate again
-        else if stage == 3: # already at the hovering height, 
-            # tweaking position            
-            if abs(img_i.u - target_centroid.u) > g or abs(img_i.v - target_centroid.v) > g:
-                dx = (img_i.u - target_centroid.u) / camera_resolution * horizontal_step 
-                dy = (img_i.v - target_centroid.v) / camera_resolution * horizontal_step
+                stage = Stage.LOCATE # not at the right position, locate again
+        elif stage == Stage.HOVER: # already at the hovering height, 
+            # tweaking position
+            if abs(img_center_i.u - target_centroid.u) > g or abs(img_center_i.v - target_centroid.v) > g: # tolerance in pixel
+                dx = (img_center_i.u - target_centroid.u) / camera_resolution * horizontal_step 
+                dy = (img__center_i.v - target_centroid.v) / camera_resolution * horizontal_step
                 hover_pose.x = current_pose.x + dx
                 hover_pose.y = current_pose.y + dy
+                next_pose = hover_pose
             else: # hover for some time and leave
                 wait(hover_time)
                 break
     else:                                       # target not found
         img_seq_not_found = img_timestamp(img_i)
-        if stage == 3 and img_seq_not_found - img_seq_found < timeout_detection:
-                dx = (img_i.u - last_target_centroid.u) / camera_resolution * horizontal_step 
-                dy = (img_i.v - last_target_centroid.v) / camera_resolution * horizontal_step
+        if stage == Stage.HOVER and img_seq_not_found - img_seq_found < timeout_detection:      # target out of sight before timeout
+                dx = (img_center_i.u - last_target_centroid.u) / camera_resolution * horizontal_step 
+                dy = (img_center_i.v - last_target_centroid.v) / camera_resolution * horizontal_step
                 hover_pose.x = current_pose.x + dx
                 hover_pose.y = current_pose.y + dy
 
