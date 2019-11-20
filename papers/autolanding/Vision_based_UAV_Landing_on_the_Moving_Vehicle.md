@@ -22,4 +22,6 @@ The target tracking system is based on the relative distance between the UAV and
 
 # Target Tracking
 
+The flight control system has an _attitude controller_, a _velocity controller_ and a _position profile_. The velocity commands are calculated using the relative distance between the current position and the target position.
+
 TODO
