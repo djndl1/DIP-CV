@@ -1,4 +1,4 @@
-# Mathematics
+** Mathematics
 
 All current ML systems use tensors as their basic data structure.
 
@@ -6,12 +6,21 @@ Models don't process an entire dataset at once. They break the data into small b
 
 All transformations learned by models can be reduced to a handful of tensor operations applied to tensors of numeric data:
 
-```python
+#+BEGIN_SRC python
 # Dense layer
-output = np.maximum(0, np.dot(W, input) + b)
-```
+output = np.maximum(0, np.dot(W, input) + b)  
+#+END_SRC
 
-```
+Suppose that $f\colon\mathbb{R}^{N_{1}\times\cdots\times N_{D_{x}}}\mapsto\mathbb{R}^{M_{1}\times\cdots\times M_{D_{y}}}$, if $y = f(x)$ then the derivative is a generalized Jacobian, with shape
+
+$$
+\left(M_{1}\times\cdots\times M_{D_{y}}\right)\times\left(N_{1}\times\cdots\times N_{D_{x}}\right)
+$$
+
+TODO
+
+* Workflow
+#+BEGIN_SRC 
                    Input X
                       +
                       |
@@ -38,8 +47,8 @@ update |              |                       |
        ^                          v
        |                     +----|-----+
        +---------------------+loss score|
-                             +----------+
-```
+                             +----------+  
+#+END_SRC
 
 Loss functions and optimizers are the keys to configuring the learning process. Use binary crossentropy for a two-class classification problem, categorical crossentropy for a many-class classification problem, mean-squared error for a regression problem, connectionist temporal classification (CTC) for a sequence-learning problem.
 
@@ -58,3 +67,20 @@ There are two ways to define a model:
 1. using the `Sequential` class;
 
 2. the functional API (for directed acyclic graphs of layers), which builds completely arbitrary architectures.
+
+** Applications
+
+** Text and Sequences
+
+kerwords: document classification, sentiment analysis, author identification, question-answering
+
+Deep learning for NLP is pattern recognition applied to words, sentences and paragraphs, in much the same way that CV is pattern recognition applied to pixels.
+
+- Vectorizing text: the process of transforming text into numeric tensors: 
+  1. segment text into words and transform each word into a vector
+  2. segment text into characters and transform each character into a vector
+  3. extract /n-grams/ (overlapping groups of multiple consecutive words or characters) of words or characters and transform each n-gram into a vector
+
+- /tokens/: the units into which the text is broken down. There are multiple ways to associate a vector with a token:
+  1. /one-hot encoding/
+  2. /token embedding/
