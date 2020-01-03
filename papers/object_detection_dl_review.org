@@ -130,6 +130,25 @@ Generic Object |
 
 A two-step process: a coarse scan of the whole scenario firstly and then focuses on regions of interest.
 
+*** R-CNN
 
+1. *selective search* for region proposal generation
+
+2. CNN based feature extraction: each region proposal is warped or cropped into a fixed resolution and is utilized to extract a 4096-dimension feature as the final representation.
+
+3. classification and location: pretrained category specific linear SVMs.
+
+#+TODO
 
 ** Regression/Classification Based
+
+One-step frameworks based on global regression/classification, mapping straightly from image pixels to bounding box coordinates and class probabilities.
+
+*** Pioneer work
+
+#+TODO
+
+*** YOLO
+
+YOLO divides the input image into an $S \times S$ grid and each grid cell is responsible for predicting the object centered in that grid cell. 
+Each grid cell predicts $B$ bounding boxes and their corresponding confidence scores.

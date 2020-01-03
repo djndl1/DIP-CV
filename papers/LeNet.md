@@ -90,7 +90,7 @@ The presence of local minima did not seem to be a major impediment to the succes
 
 The basic idea of back-propagation is that gradients can be computed efficently by propagation from the output to the input. Backpropagation is the most widely used neural network learning algorithm.
 
-Consider a system as a cascade of modules, each of which implements a function $X_{n} = F_{n}(W_{n}, X_{n-1})$, where $X_{n}$ is a vector representing the output of the module (a subset of $W$) and $X_{n-1}$ is the module's input vector as well as the previous module's output vector. The input $X_{0}$ to the first module is the input pattern $Z^{p}$. If the partial derivative of $E^{p}$ w.r.t. $X_{n}$ is known, then the partial derivative of $E^{p}$ w.r.t. $W_n$ and $X_{n-1}$ can be computed using the backward recurrence:
+Consider a system as a cascade of differentiable modules, each of which implements a function $X_{n} = F_{n}(W_{n}, X_{n-1})$, where $X_{n}$ is a vector representing the output of the module (a subset of $W$) and $X_{n-1}$ is the module's input vector as well as the previous module's output vector. The input $X_{0}$ to the first module is the input pattern $Z^{p}$. If the partial derivative of $E^{p}$ w.r.t. $X_{n}$ is known, then the partial derivative of $E^{p}$ w.r.t. $W_n$ and $X_{n-1}$ can be computed using the backward recurrence:
 
 $$
 \frac{\partial E^{p}}{\partial W_{n}}=\frac{\partial F}{\partial W}\left(W_{n},X_{n-1}\right)\frac{\partial E^{p}}{\partial X_{n}} \\ 

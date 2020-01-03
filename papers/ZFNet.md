@@ -16,7 +16,7 @@ To examine a given convnet activation, set all other activations in the layer to
 
 - rectification: passing the reconstructed signal through a relu non-linearity
 
-- filtering: transposed versions of the same filters (Wiener deconvolution in real condition), applied to the rectified maps
+- filtering: transposed versions of the same filters (Wiener deconvolution in reality condition), applied to the rectified maps
 
 The reconstruction obtained from a single activation thus resembles a small piece of the original input image, with structures according to their contribution toward to the feature activation. They implicitly show which parts of the input image are dicriminative.
 
@@ -69,3 +69,9 @@ Images patch can have greater variation than the produced activation maps.
 The upper layers only develop and stabilize after a considerable number of epochs (40-50). 
 
 Small transformations have a dramatic effect in the first layer of the model, but a lesser impact at the top feature layer. The network output is stable to translations and scalings but not invariant to rotation except for object with rotational symmetry.
+
+The first layer filters are a mix of extremely high and low frequency information. with little coverage of the mid-frequencies. The second layer visualization shows aliasing artifacts caused by teh large stride 4 used in the 1st layer convolutions. To remedy this, the original AlexNet was modified into the architecture above. This improves the classification performance significantly.
+
+By occluding different portions of the input image with a grey square, it is shown that the model is localizing the objects within the scene, as the probability of the correct class drops significantly when the object is occluded.
+
+By occluding the same part of a dog face and computing a Hamming distance, it is shown that the model does establish some degree of correspondence between different images. That is, these parts effect on the model in a relatively consistent way.
